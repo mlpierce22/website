@@ -1,7 +1,8 @@
-'use client';
+import { type ThemeConfig, extendTheme } from '@chakra-ui/react'
 
-import { createTheme } from '@mantine/core';
+const config: ThemeConfig = {
+    initialColorMode: 'dark',
+    useSystemColorMode: true,
+}
 
-export const theme = createTheme({
-  /* Put your mantine theme override here */
-});
+export const theme = extendTheme({ config })
