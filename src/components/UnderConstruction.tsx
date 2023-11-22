@@ -1,22 +1,15 @@
 'use client'
 import { Box, Center, Heading, Icon, Text } from '@chakra-ui/react';
 import { IoIosHammer } from "react-icons/io";
-import { keyframes } from "@emotion/react";
-
-const spin = keyframes`
-0% { transform: rotate(-45deg); }
-50% { transform: rotate(45deg); }
-            100% { transform: rotate(-45deg); }
-`;
-
+import { hammer } from '@/animations';
 
 export const UnderConstruction = () => {
     return (
-        <Center h="100vh">
+        <Center height={"100%"}>
             <Box textAlign="center">
                 <Icon as={IoIosHammer} boxSize={100}
                     css={{
-                        animation: `${spin} 2s linear infinite`
+                        animation: `${hammer} 2s linear infinite`
                     }}
                 />
                 <Heading as="h2" size="lg" bgGradient='linear(to-r, red.500, yellow.500)'
