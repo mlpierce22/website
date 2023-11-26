@@ -2,16 +2,17 @@
 import { Button, HStack, useColorMode, useDisclosure, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, VStack } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import NavItemsList, { NavItem } from '@/components/NavItemList';
+import Footer from './Footer';
 
 const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode()
     const { isOpen, onOpen, onClose } = useDisclosure()
     const navItems: NavItem[] = [
-        { name: '🏠 Home', path: '/', variant: 'ghost' },
-        { name: '👤 About Me', path: '/about', variant: 'ghost' },
-        { name: '📚 Projects', path: '/projects', variant: 'ghost' },
-        { name: '🔖 Bookmarks', path: '/bookmarks', variant: 'ghost' },
-        { name: '📝 Blog', path: '/blog', variant: 'ghost' },
+        { name: 'Home', icon: '🏠', path: '/', variant: 'ghost', size: "xl" },
+        { name: 'About Me', icon: '👤', path: '/about', variant: 'ghost', size: "xl" },
+        { name: 'Projects', icon: '📚', path: '/projects', variant: 'ghost', size: "xl" },
+        { name: 'Bookmarks', icon: '🔖', path: '/bookmarks', variant: 'ghost', size: "xl" },
+        { name: 'Blog', icon: '📝', path: '/blog', variant: 'ghost', size: "xl" },
     ]
 
     return (
@@ -33,10 +34,13 @@ const Navbar = () => {
             <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
                 <DrawerOverlay>
                     <DrawerContent>
+                        <Button onClick={toggleColorMode} variant={"outline"} w={"fit-content"} m={4}>{colorMode === 'light' ? "🌙" : "☀️"}</Button>
                         <DrawerCloseButton />
-                        <VStack p={4} justifyContent='space-between'>
+
+                        <VStack p={4} justifyContent='space-between' alignItems={"start"} mb={"auto"} ml={"auto"} mr="auto">
                             <NavItemsList navItems={navItems} />
                         </VStack>
+                        <Footer />
                     </DrawerContent>
                 </DrawerOverlay>
             </Drawer>

@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 import { CustomColorScript } from "@/components/CustomColorScript";
+import "./globals.css";
 
 const RootLayout = ({ children }: { children: any }) => {
   return (

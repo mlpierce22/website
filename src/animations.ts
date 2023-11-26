@@ -7,7 +7,7 @@ export const hammer = keyframes`
 `;
 
 export const wave = keyframes`
-0% { transform: rotate(-45deg); }
+0% { transform: rotate(0deg); }
 50% { transform: rotate(90deg); }
-            100% { transform: rotate(-45deg); }
+100% { transform: rotate(0deg); }
 `;

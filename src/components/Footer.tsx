@@ -10,12 +10,16 @@ const Footer = () => {
         { name: '📚 Projects', path: '/projects', variant: 'link' },
         { name: '🔖 Bookmarks', path: '/bookmarks', variant: 'link' },
         { name: '📝 Blog', path: '/blog', variant: 'link' },]
+    const bottomIcons: NavItem[] = [
+        { name: "", path: "https://github.com/mlpierce22", isExternal: true, icon: <FaGithub />, variant: "link" },
+        { name: "", path: "https://linkedin.com/in/malapier", isExternal: true, icon: <FaLinkedin />, variant: "link" }
+
+    ]
     return (
         <VStack p={4}>
             <VStack>
                 <HStack>
-                    <Link href="https://github.com/mlpierce22" isExternal><FaGithub /></Link>
-                    <Link href="https://linkedin.com/in/malapier" isExternal><FaLinkedin /></Link>
+                    <NavItemsList navItems={bottomIcons}></NavItemsList>
                 </HStack>
                 <Text>&copy; {new Date().getFullYear()} Mason Pierce</Text>
                 {/* <VStack>

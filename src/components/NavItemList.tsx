@@ -4,7 +4,10 @@ import { useRouter } from 'next/navigation';
 export type NavItem = {
     name: string,
     path: string,
-    variant: string
+    variant: string,
+    icon?: any,
+    size?: "sm" | "md" | "lg" | "xs" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl"
+    isExternal?: boolean
 }
 
 type NavProps = {
@@ -13,11 +16,24 @@ type NavProps = {
 
 const NavItemsList = ({ navItems }: NavProps) => {
     const router = useRouter();
+    const navigate = (path: string, isExternal: boolean) => {
+        if (isExternal) {
+            window.open(path, '_blank');
+        } else {
+            router.push(path);
+        }
+    }
     return (
         <>
             {navItems.map((item, index) => {
                 return (
-                    <Button onClick={() => router.push(item.path)} variant={item.variant} key={`${index}-nav-item`}>{item.name}</Button>
+                    <>
+                        {item.icon && !item.name ?
+                            <Button onClick={() => navigate(item.path, !!item.isExternal)} key={`${index}-nav-icon`}>{item.icon}</Button>
+                            :
+                            <Button leftIcon={item.icon || ''} onClick={() => navigate(item.path, !!item.isExternal)} variant={"solid"} key={`${index}-nav-item`}>{item.name}</Button>
+                        }
+                    </>
                 )
             })
             }
