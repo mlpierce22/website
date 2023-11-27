@@ -2,6 +2,7 @@ import { Button } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 
 export type NavItem = {
+    id: string,
     name: string,
     path: string,
     variant: string,
@@ -26,15 +27,10 @@ const NavItemsList = ({ navItems }: NavProps) => {
     return (
         <>
             {navItems.map((item, index) => {
-                return (
-                    <>
-                        {item.icon && !item.name ?
-                            <Button onClick={() => navigate(item.path, !!item.isExternal)} key={`${index}-nav-icon`}>{item.icon}</Button>
-                            :
-                            <Button leftIcon={item.icon || ''} onClick={() => navigate(item.path, !!item.isExternal)} variant={"solid"} key={`${index}-nav-item`}>{item.name}</Button>
-                        }
-                    </>
-                )
+                return item.icon && !item.name ?
+                    <Button onClick={() => navigate(item.path, !!item.isExternal)} key={`${index}-${item.id}-nav-icon`}>{item.icon}</Button>
+                    :
+                    <Button leftIcon={item.icon || ''} onClick={() => navigate(item.path, !!item.isExternal)} variant={item.variant} key={`${index}-${item.id}-nav-item`}>{item.name}</Button>
             })
             }
         </>

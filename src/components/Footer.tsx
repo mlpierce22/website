@@ -4,15 +4,9 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import NavItemsList, { NavItem } from './NavItemList';
 
 const Footer = () => {
-    const navItems: NavItem[] = [
-        { name: '🏠 Home', path: '/', variant: 'link' },
-        { name: '👤 About Me', path: '/about', variant: 'link' },
-        { name: '📚 Projects', path: '/projects', variant: 'link' },
-        { name: '🔖 Bookmarks', path: '/bookmarks', variant: 'link' },
-        { name: '📝 Blog', path: '/blog', variant: 'link' },]
     const bottomIcons: NavItem[] = [
-        { name: "", path: "https://github.com/mlpierce22", isExternal: true, icon: <FaGithub />, variant: "link" },
-        { name: "", path: "https://linkedin.com/in/malapier", isExternal: true, icon: <FaLinkedin />, variant: "link" }
+        { id: "bottom-github-link", name: "", path: "https://github.com/mlpierce22", isExternal: true, icon: <FaGithub />, variant: "link" },
+        { id: "bottom-linkedin-link", name: "", path: "https://linkedin.com/in/malapier", isExternal: true, icon: <FaLinkedin />, variant: "link" }
 
     ]
     return (

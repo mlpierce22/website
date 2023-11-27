@@ -1,6 +1,6 @@
 'use client'
 import { wave } from '@/animations';
-import { Heading, VStack, HStack, Link, List, ListItem, ListIcon, Button, Text, Stack, useBreakpoint } from '@chakra-ui/react';
+import { Heading, VStack, HStack, Link, List, ListItem, ListIcon, Button, Text, Stack, useBreakpoint, Box } from '@chakra-ui/react';
 import { EmailIcon, AtSignIcon } from '@chakra-ui/icons';
 import Image from 'next/image'
 import NavItemsList, { NavItem } from '@/components/NavItemList';
@@ -19,11 +19,11 @@ const LetsConnect = () => {
 }
 const HomePage = () => {
   const imageButtons: NavItem[] = [
-    { name: 'View Projects', icon: '📚', path: '/projects', variant: 'solid' },
+    { id: "view-projects-button", name: 'View Projects', icon: '📚', path: '/projects', variant: 'solid' },
     {
-      name: 'Visit Github', icon: <FaGithub />, path: "https://github.com/mlpierce22", variant: 'solid', isExternal: true
+      id: "view-projects-button", name: 'Visit Github', icon: <FaGithub />, path: "https://github.com/mlpierce22", variant: 'solid', isExternal: true
     },
-    { name: 'Connect on LinkedIn', icon: <FaLinkedin />, path: "https://linkedin.com/in/malapier", variant: 'solid', isExternal: true }
+    { id: "connect-linkedin-button", name: 'Connect on LinkedIn', icon: <FaLinkedin />, path: "https://linkedin.com/in/malapier", variant: 'solid', isExternal: true }
   ]
 
   const quickFacts = [
@@ -44,14 +44,16 @@ const HomePage = () => {
     <VStack p={10} spacing={10} overflow={'scroll'} className='text-xl'>
       <VStack spacing={4}>
         <HStack spacing={5}>
-          <Heading size="2xl">Hey there, I'm Mason!</Heading>
+          <Heading size={{ base: "xl", md: "2xl" }}>Hey there, I'm Mason!</Heading>
           <Image src="/wave-animated.gif" alt="Mason Pierce" width={50} height={50} priority />
         </HStack>
         <Text fontSize="lg">Welcome to my corner of the internet</Text>
       </VStack>
       <Stack spacing={8} direction={{ base: "column", lg: "row" }}>
         <VStack>
-          <Image className="rounded-lg justify-self-center self-center" src="/portrait.jpg" alt="Mason Pierce" width={500} height={500} priority />
+          <Box as="div" className='justify-self-center self-center w-3/4 h-auto'>
+            <Image objectPosition="" className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
+          </Box>
           <HStack spacing={2}>
             <NavItemsList navItems={imageButtons} />
           </HStack>
