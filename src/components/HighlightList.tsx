@@ -14,7 +14,7 @@ type HighlightListProps = {
 const HighlightList = ({ highlightList, title }: HighlightListProps) => {
     return (
         <>
-            <Heading size="lg" mb={2}>{title}</Heading>
+            <Heading size={{ base: "md", md: "lg" }} mb={2}>{title}</Heading>
             <List spacing={2}>
                 {highlightList.map((highlight, index) => (
                     <ListItem key={`${index}-highlight-item`}>

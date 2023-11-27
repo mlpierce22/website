@@ -13,9 +13,10 @@ export type NavItem = {
 
 type NavProps = {
     navItems: NavItem[]
+    iconOnly?: boolean
 }
 
-const NavItemsList = ({ navItems }: NavProps) => {
+const NavItemsList = ({ navItems, iconOnly }: NavProps) => {
     const router = useRouter();
     const navigate = (path: string, isExternal: boolean) => {
         if (isExternal) {
@@ -27,7 +28,7 @@ const NavItemsList = ({ navItems }: NavProps) => {
     return (
         <>
             {navItems.map((item, index) => {
-                return item.icon && !item.name ?
+                return item.icon && !item.name || iconOnly ?
                     <Button onClick={() => navigate(item.path, !!item.isExternal)} key={`${index}-${item.id}-nav-icon`}>{item.icon}</Button>
                     :
                     <Button leftIcon={item.icon || ''} onClick={() => navigate(item.path, !!item.isExternal)} variant={item.variant} key={`${index}-${item.id}-nav-item`}>{item.name}</Button>

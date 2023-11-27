@@ -16,7 +16,7 @@ const Navbar = () => {
     ]
 
     return (
-        <HStack p={4} justifyContent='space-between' boxShadow='sm'>
+        <HStack p={4} justifyContent='space-between' className='border-b-2 dark:border-b-slate-700 border-b-slate-200'>
             <Button hideFrom='md' onClick={toggleColorMode} variant={"outline"} w={"fit-content"} ml={"auto"}>{colorMode === 'light' ? "🌙" : "☀️"}</Button>
             <IconButton
                 icon={<HamburgerIcon />}

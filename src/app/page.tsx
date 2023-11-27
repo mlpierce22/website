@@ -18,6 +18,11 @@ const LetsConnect = () => {
   )
 }
 const HomePage = () => {
+
+  const breakpoint = useBreakpoint();
+
+  const iconsOnly = breakpoint === 'base' || breakpoint === 'sm';
+
   const imageButtons: NavItem[] = [
     { id: "view-projects-button", name: 'View Projects', icon: '📚', path: '/projects', variant: 'solid' },
     {
@@ -44,18 +49,18 @@ const HomePage = () => {
     <VStack p={10} spacing={10} overflow={'scroll'} className='text-xl'>
       <VStack spacing={4}>
         <HStack spacing={5}>
-          <Heading size={{ base: "xl", md: "2xl" }}>Hey there, I'm Mason!</Heading>
-          <Image src="/wave-animated.gif" alt="Mason Pierce" width={50} height={50} priority />
+          <Heading size={{ base: "lg", md: "2xl" }}>Hey there, I'm Mason!</Heading>
+          <Image src="/wave-animated.gif" alt="Mason Pierce" width={iconsOnly ? 30 : 50} height={iconsOnly ? 30 : 50} priority />
         </HStack>
         <Text fontSize="lg">Welcome to my corner of the internet</Text>
       </VStack>
       <Stack spacing={8} direction={{ base: "column", lg: "row" }}>
         <VStack>
-          <Box as="div" className='justify-self-center self-center w-3/4 h-auto'>
-            <Image objectPosition="" className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
+          <Box as="div" className='relative justify-self-center self-center w-[300px] h-[186px] sm:w-[400px] sm:h-[286px] md:w-[500px] md:h-[386px] lg:w-[600px] lg:h-[486px]'>
+            <Image style={{ objectFit: 'contain' }} className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
           </Box>
           <HStack spacing={2}>
-            <NavItemsList navItems={imageButtons} />
+            <NavItemsList navItems={imageButtons} iconOnly={iconsOnly} />
           </HStack>
         </VStack>
         <VStack align={"start"} justify={"start"} spacing={4}>
