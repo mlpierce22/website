@@ -10,16 +10,12 @@ const Footer = () => {
 
     ]
     return (
-        <VStack p={4}>
+        <VStack p={4} mt={"auto"}>
             <VStack>
                 <HStack>
                     <NavItemsList navItems={bottomIcons}></NavItemsList>
                 </HStack>
                 <Text>&copy; {new Date().getFullYear()} Mason Pierce</Text>
-                {/* <VStack>
-                    <Text>Links:</Text>
-                    <NavItemsList navItems={navItems} />
-                </VStack> */}
             </VStack>
         </VStack>
     );
