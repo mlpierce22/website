@@ -1,16 +1,15 @@
 import Providers from "./providers";
 import React from 'react';
-import { VStack } from '@chakra-ui/react'
+import { VStack, ColorModeScript } from '@chakra-ui/react'
 import theme from './theme';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
-import { CustomColorScript } from "@/components/CustomColorScript";
 import "./globals.css";
 
 const RootLayout = ({ children }: { children: any }) => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="shortcut icon" href="/favicon.svg" />
         <title>Welcome to my site! 👋</title>
@@ -19,7 +18,7 @@ const RootLayout = ({ children }: { children: any }) => {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
 
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
@@ -33,7 +32,7 @@ const RootLayout = ({ children }: { children: any }) => {
         { }
         <Providers>
           <Navbar />
-          <CustomColorScript initialColorMode={theme.config.initialColorMode} />
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <VStack w={"100%"}>
             {children}
           </VStack>
