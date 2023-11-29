@@ -32,17 +32,17 @@ const HomePage = () => {
   ]
 
   const quickFacts = [
-    { icon: '📍', desc: 'Based in San Francisco, CA' },
-    { icon: '🏅', desc: 'Former student athlete at UC Santa Cruz' },
-    { icon: '🚀', desc: 'Full-stack software engineer with a focus on user experience' },
-    { icon: '🤖', desc: 'Experience building ML applications for enterprise' }
+    { icon: '•', desc: 'Based in San Francisco, CA' },
+    { icon: '•', desc: 'Former student athlete at UC Santa Cruz' },
+    { icon: '•', desc: 'Full-stack software engineer with a focus on user experience' },
+    { icon: '•', desc: 'Experience building ML applications for enterprise' }
   ];
 
   const professionalInterests = [
-    { icon: '🔬', desc: 'Innovating with edge technologies' },
-    { icon: '💡', desc: 'Crafting user-centric solutions' },
-    { icon: '🌐', desc: 'Contributing to open-source projects' },
-    { icon: '🧠', desc: 'Exploring the potential of LLMs' }
+    { icon: '•', desc: 'Innovating with edge technologies' },
+    { icon: '•', desc: 'Crafting user-centric solutions' },
+    { icon: '•', desc: 'Contributing to open-source projects' },
+    { icon: '•', desc: 'Exploring the potential of LLMs' }
   ];
 
   return (
