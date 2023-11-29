@@ -1,5 +1,5 @@
 import {
-    type ThemeOverride, extendTheme, withDefaultColorScheme, theme as baseTheme
+    type ThemeOverride, extendTheme, withDefaultColorScheme, theme as baseTheme, withDefaultSize
 } from '@chakra-ui/react'
 
 /** Can import 100->700 (ibm) or 100-900 (poppins) each with italic variant. Import as necessary */
@@ -23,12 +23,14 @@ const fonts = {
     heading: 'Poppins, sans-serif',
 }
 const colors = {
-    brand: baseTheme.colors.blue,
+    brand: baseTheme.colors.green,
 }
 
 export default extendTheme(
     {
         config, fonts, colors
     },
-    withDefaultColorScheme({ colorScheme: 'brand' }));
+    withDefaultColorScheme({ colorScheme: 'brand' }),
+    withDefaultSize({ size: 'lg' })
+);
 
