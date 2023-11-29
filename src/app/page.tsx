@@ -3,10 +3,10 @@ import { wave } from '@/animations';
 import { Heading, VStack, HStack, Link, List, ListItem, ListIcon, Button, Text, Stack, useBreakpoint, Box } from '@chakra-ui/react';
 import { EmailIcon, AtSignIcon } from '@chakra-ui/icons';
 import Image from 'next/image'
-import NavItemsList, { NavItem } from '@/components/NavItemList';
+import { NavItem } from '@/components/NavItemList';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import HighlightList from '@/components/HighlightList';
 import TypeText from '@/components/TypeText';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
 
 const LetsConnect = () => {
   return (
@@ -46,16 +46,59 @@ const HomePage = () => {
     { icon: '•', desc: 'Exploring the potential of LLMs' }
   ];
 
+  const header = useMemo(() => (
+    "Hey there, I'm Mason!"
+  ), [])
+  const blurbLines = useMemo(() => ([
+    "I'm a product-minded full-stack software engineer with a passion",
+    "for building user-centric applications with a focus on",
+    "user experience and frontend development."
+  ]), [])
+
+  const [components, setComponents] = useState<React.ComponentType[]>([]);
+  const hasRun = useRef([] as number[]);
+  const typeSpeedSeconds = 2;
+
+  useEffect(() => {
+
+    const sleep = (s: number) => new Promise(resolve => setTimeout(resolve, s * 1000));
+    blurbLines.forEach(async (line, index) => {
+      // Block against re-rendering
+      if (hasRun.current.includes(index)) return;
+      hasRun.current.push(index);
+
+      await sleep(typeSpeedSeconds * (index + 1));
+      setComponents((components) => [...components, memo(() => (
+        <TypeText steps={line.length} typeSpeedSeconds={typeSpeedSeconds}>
+          <Text fontSize={{ base: "lg", md: "3xl" }} >
+            {line}
+          </Text>
+        </TypeText>
+      ))])
+    });
+  }, [])
+
+
+
   return (
     <VStack p={10} spacing={10}>
       <Box as="div" className='relative justify-self-center self-center w-[300px] h-[186px] sm:w-[400px] sm:h-[286px] md:w-[500px] md:h-[386px] lg:w-[600px] lg:h-[486px]'>
         <Image style={{ objectFit: 'contain' }} className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
       </Box>
-      <VStack spacing={4}>
-        <Heading size={{ base: "lg", md: "3xl" }}>
-          <TypeText text="Hey there, I'm Mason!" typeSpeedSeconds={3} />
-        </Heading>
+      <VStack spacing={10}>
+        <TypeText steps={header.length} typeSpeedSeconds={typeSpeedSeconds}>
+          <Heading size={{ base: "lg", md: "3xl" }}>
+            {header}
+          </Heading>
+        </TypeText>
+        <VStack align={"start"}>
+          {
+            components.map((Component, index) => (
+              <Component key={index} />
+            ))
+          }
 
+        </VStack>
       </VStack>
     </VStack>
     // <VStack p={10} spacing={10} overflow={'scroll'} className='text-xl'>
