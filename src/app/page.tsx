@@ -6,6 +6,7 @@ import Image from 'next/image'
 import NavItemsList, { NavItem } from '@/components/NavItemList';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import HighlightList from '@/components/HighlightList';
+import TypeText from '@/components/TypeText';
 
 const LetsConnect = () => {
   return (
@@ -46,30 +47,41 @@ const HomePage = () => {
   ];
 
   return (
-    <VStack p={10} spacing={10} overflow={'scroll'} className='text-xl'>
+    <VStack p={10} spacing={10}>
+      <Box as="div" className='relative justify-self-center self-center w-[300px] h-[186px] sm:w-[400px] sm:h-[286px] md:w-[500px] md:h-[386px] lg:w-[600px] lg:h-[486px]'>
+        <Image style={{ objectFit: 'contain' }} className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
+      </Box>
       <VStack spacing={4}>
-        <HStack spacing={5}>
-          <Heading size={{ base: "lg", md: "2xl" }}>Hey there, I'm Mason!</Heading>
-          <Image src="/wave-animated.gif" alt="Mason Pierce" width={iconsOnly ? 30 : 50} height={iconsOnly ? 30 : 50} priority />
-        </HStack>
-        <Text fontSize="lg">Welcome to my corner of the internet</Text>
+        <Heading size={{ base: "lg", md: "3xl" }}>
+          <TypeText text="Hey there, I'm Mason!" typeSpeedSeconds={3} />
+        </Heading>
+
       </VStack>
-      <Stack spacing={8} direction={{ base: "column", lg: "row" }}>
-        <VStack>
-          <Box as="div" className='relative justify-self-center self-center w-[300px] h-[186px] sm:w-[400px] sm:h-[286px] md:w-[500px] md:h-[386px] lg:w-[600px] lg:h-[486px]'>
-            <Image style={{ objectFit: 'contain' }} className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
-          </Box>
-          <HStack spacing={2}>
-            <NavItemsList navItems={imageButtons} iconOnly={iconsOnly} />
-          </HStack>
-        </VStack>
-        <VStack align={"start"} justify={"start"} spacing={4}>
-          <HighlightList highlightList={quickFacts} title={"⚡️ Quick Facts"}></HighlightList>
-          <HighlightList highlightList={professionalInterests} title={"👨‍💻 Professional Interests"}></HighlightList>
-          <LetsConnect></LetsConnect>
-        </VStack>
-      </Stack>
     </VStack>
+    // <VStack p={10} spacing={10} overflow={'scroll'} className='text-xl'>
+    //   <VStack spacing={4}>
+    //     <HStack spacing={5}>
+    //       <Heading size={{ base: "lg", md: "2xl" }}>Hey there, I'm Mason!</Heading>
+    //       <Image src="/wave-animated.gif" alt="Mason Pierce" width={iconsOnly ? 30 : 50} height={iconsOnly ? 30 : 50} priority />
+    //     </HStack>
+    //     <Text fontSize="lg">Welcome to my corner of the internet</Text>
+    //   </VStack>
+    //   <Stack spacing={8} direction={{ base: "column", lg: "row" }}>
+    //     <VStack>
+    //       <Box as="div" className='relative justify-self-center self-center w-[300px] h-[186px] sm:w-[400px] sm:h-[286px] md:w-[500px] md:h-[386px] lg:w-[600px] lg:h-[486px]'>
+    //         <Image style={{ objectFit: 'contain' }} className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
+    //       </Box>
+    //       <HStack spacing={2}>
+    //         <NavItemsList navItems={imageButtons} iconOnly={iconsOnly} />
+    //       </HStack>
+    //     </VStack>
+    //     <VStack align={"start"} justify={"start"} spacing={4}>
+    //       <HighlightList highlightList={quickFacts} title={"⚡️ Quick Facts"}></HighlightList>
+    //       <HighlightList highlightList={professionalInterests} title={"👨‍💻 Professional Interests"}></HighlightList>
+    //       <LetsConnect></LetsConnect>
+    //     </VStack>
+    //   </Stack>
+    // </VStack>
   );
 }
 
