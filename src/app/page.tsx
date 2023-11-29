@@ -1,12 +1,13 @@
 'use client'
 import { wave } from '@/animations';
-import { Heading, VStack, HStack, Link, List, ListItem, ListIcon, Button, Text, Stack, useBreakpoint, Box } from '@chakra-ui/react';
+import { Heading, VStack, HStack, Link, List, ListItem, ListIcon, Button, Text, Stack, useBreakpoint, Box, useDimensions } from '@chakra-ui/react';
 import { EmailIcon, AtSignIcon } from '@chakra-ui/icons';
 import Image from 'next/image'
 import { NavItem } from '@/components/NavItemList';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import TypeText from '@/components/TypeText';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import TypeParagraph from '@/components/TypeParagraph';
 
 const LetsConnect = () => {
   return (
@@ -46,39 +47,35 @@ const HomePage = () => {
     { icon: '•', desc: 'Exploring the potential of LLMs' }
   ];
 
+
   const header = useMemo(() => (
     "Hey there, I'm Mason!"
   ), [])
-  const blurbLines = useMemo(() => ([
-    "I'm a product-minded full-stack software engineer with a passion",
-    "for building user-centric applications with a focus on",
-    "user experience and frontend development."
-  ]), [])
 
-  const [components, setComponents] = useState<React.ComponentType[]>([]);
-  const hasRun = useRef([] as number[]);
-  const typeSpeedSeconds = 2;
+  const introLines = useMemo(() => (
+    "I'm a product-minded full-stack software engineer with a passion for building user-centric applications. My core expertise is in frontend specifically as it relates to enterprise with a security focus."
+  ), [])
 
-  useEffect(() => {
+  // const introLines = useMemo(() => ([
+  //   "I'm a product-minded full-stack",
+  //   "software engineer with a passion",
+  //   "for building user-centric applications.",
+  //   "My core expertise is in frontend",
+  //   "specifically as it relates to enterprise",
+  //   "with a security focus."
+  // ]), [])
 
-    const sleep = (s: number) => new Promise(resolve => setTimeout(resolve, s * 1000));
-    blurbLines.forEach(async (line, index) => {
-      // Block against re-rendering
-      if (hasRun.current.includes(index)) return;
-      hasRun.current.push(index);
+  const hook = useMemo(() => (
+    "I'm currently looking for my next opportunity! I'm very interested in working at the intersection of AI and user experience. If you're looking for a software engineer with a passion for building products that people love, let's connect!"
+  ), [])
 
-      await sleep(typeSpeedSeconds * (index + 1));
-      setComponents((components) => [...components, memo(() => (
-        <TypeText steps={line.length} typeSpeedSeconds={typeSpeedSeconds}>
-          <Text fontSize={{ base: "lg", md: "3xl" }} >
-            {line}
-          </Text>
-        </TypeText>
-      ))])
-    });
-  }, [])
+  const typeSpeedSeconds = 1;
+  const pageLoadDelaySeconds = 0.5;
 
+  const stackWidthRef = useRef(null);
+  const parentDimensions = useDimensions(stackWidthRef)
 
+  // TODO: Keep track of when typing is done and then render the next section rather than relying on timing which is fragile
 
   return (
     <VStack p={10} spacing={10}>
@@ -86,18 +83,16 @@ const HomePage = () => {
         <Image style={{ objectFit: 'contain' }} className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
       </Box>
       <VStack spacing={10}>
-        <TypeText steps={header.length} typeSpeedSeconds={typeSpeedSeconds}>
+        <TypeText steps={header.length} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={pageLoadDelaySeconds}>
           <Heading size={{ base: "lg", md: "3xl" }}>
             {header}
           </Heading>
         </TypeText>
-        <VStack align={"start"}>
-          {
-            components.map((Component, index) => (
-              <Component key={index} />
-            ))
-          }
-
+        <VStack align={"start"} width={"90%"} ref={stackWidthRef}>
+          <TypeParagraph paragraph={introLines} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={typeSpeedSeconds + pageLoadDelaySeconds} desiredDimensions={parentDimensions} />
+        </VStack>
+        <VStack align={"start"} width={"90%"}>
+          <TypeParagraph paragraph={hook} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={(typeSpeedSeconds) + pageLoadDelaySeconds} desiredDimensions={parentDimensions} />
         </VStack>
       </VStack>
     </VStack>
