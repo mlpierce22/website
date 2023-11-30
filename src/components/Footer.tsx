@@ -5,8 +5,8 @@ import NavItemsList, { NavItem } from './NavItemList';
 
 const Footer = () => {
     const bottomIcons: NavItem[] = [
-        { id: "bottom-github-link", name: "", path: "https://github.com/mlpierce22", isExternal: true, icon: <FaGithub />, variant: "link" },
-        { id: "bottom-linkedin-link", name: "", path: "https://linkedin.com/in/malapier", isExternal: true, icon: <FaLinkedin />, variant: "link" }
+        { id: "bottom-github-link", name: "", path: "https://github.com/mlpierce22", isExternal: true, icon: <FaGithub size="1.5rem" />, variant: "link" },
+        { id: "bottom-linkedin-link", name: "", path: "https://linkedin.com/in/malapier", isExternal: true, icon: <FaLinkedin size="1.5rem" />, variant: "link" }
 
     ]
     return (

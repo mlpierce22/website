@@ -1,8 +1,9 @@
 
 
 
-import { Box, Text, VStack, useDimensions } from "@chakra-ui/react";
-import { memo, useEffect, useMemo, useRef, useState } from "react";
+import { Box, Text, VStack } from "@chakra-ui/react";
+import { memo, useEffect, useRef, useState } from "react";
+import { Property } from "csstype";
 import TypeText from "./TypeText";
 
 export type TypeTextProps = {
@@ -11,7 +12,7 @@ export type TypeTextProps = {
     delaySeconds?: number
     doneTypingCallback?: () => void
     children?: React.ReactNode
-    align?: "start" | "center" | "end" | "stretch" | "baseline" | "initial" | "inherit"
+    align?: Property.AlignItems
 }
 
 const TypeParagraph = ({ paragraph, typeSpeedSeconds, delaySeconds, doneTypingCallback, children, align }: TypeTextProps) => {

@@ -1,5 +1,5 @@
 import { createTypingAnimation } from "@/animations";
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { ReactNode, useEffect, useState } from "react";
 
 export type TypeTextProps = {
