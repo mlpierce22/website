@@ -1,7 +1,7 @@
 
 
 
-import { Box, Text, useDimensions } from "@chakra-ui/react";
+import { Box, Text, VStack, useDimensions } from "@chakra-ui/react";
 import { memo, useEffect, useMemo, useRef, useState } from "react";
 import TypeText from "./TypeText";
 
@@ -9,14 +9,17 @@ export type TypeTextProps = {
     paragraph: string,
     typeSpeedSeconds: number,
     delaySeconds?: number
-    desiredDimensions?: ReturnType<typeof useDimensions>
     doneTypingCallback?: () => void
+    children?: React.ReactNode
+    align?: "start" | "center" | "end" | "stretch" | "baseline" | "initial" | "inherit"
 }
 
-const TypeParagraph = ({ paragraph, typeSpeedSeconds, delaySeconds, desiredDimensions, doneTypingCallback }: TypeTextProps) => {
+const TypeParagraph = ({ paragraph, typeSpeedSeconds, delaySeconds, doneTypingCallback, children, align }: TypeTextProps) => {
+    const stackWidthRef = useRef<HTMLDivElement>(null);
     const [components, setComponents] = useState<React.ComponentType[]>([]);
     const hasRun = useRef([] as number[]);
     const isTyping = useRef(false);
+
     const breakStringToFitWindow = (inputString: string, maxCharsPerLine: number) => {
         const words = inputString.split(' ');
         let currentLine = '';
@@ -41,13 +44,16 @@ const TypeParagraph = ({ paragraph, typeSpeedSeconds, delaySeconds, desiredDimen
 
     useEffect(() => {
         isTyping.current = true;
-        // Get the width of the parent container
-        const parentWidth = desiredDimensions?.borderBox?.width || window.innerWidth * 0.9;
 
-        const lines = breakStringToFitWindow(paragraph, parentWidth / 14);
+        const desiredDimensions = stackWidthRef.current?.getBoundingClientRect();
+
+        // Get the width of the parent container
+        const parentWidth = desiredDimensions?.width || window.innerWidth * 0.9;
+
+        const lines = breakStringToFitWindow(paragraph, parentWidth / 16);
         const sleep = (s: number) => new Promise(resolve => setTimeout(resolve, s * 1000));
         const doneTyping = [];
-        const updateDoneTyping = (index: number, linesArr: string[], parentWidth: number) => {
+        const updateDoneTyping = (index: number, linesArr: string[]) => {
             doneTyping[index] = true;
             if (doneTyping.length === linesArr.length) {
                 isTyping.current = false;
@@ -56,12 +62,12 @@ const TypeParagraph = ({ paragraph, typeSpeedSeconds, delaySeconds, desiredDimen
                 // Simply replace the rendered components with just the text element
                 setComponents(() => [
                     memo(() => (
-                        <Box as="div" display={"flex"}>
-                            <Box as="span">
-                                <Text fontSize={{ base: "lg", md: "3xl" }} key={index}>
+                        <Box as="span">
+                            {children ? children :
+                                <Text fontSize={{ base: "lg", md: "3xl" }} >
                                     {linesArr.join(' ')}
                                 </Text>
-                            </Box>
+                            }
                         </Box>
                     ))
                 ]);
@@ -77,23 +83,27 @@ const TypeParagraph = ({ paragraph, typeSpeedSeconds, delaySeconds, desiredDimen
             // Wait for it to be this line's turn
             await sleep(typeSpeedSeconds * (index + (delaySeconds || 0)));
             setComponents((components) => [...components, memo(() => (
-                <TypeText steps={line.length} typeSpeedSeconds={typeSpeedSeconds} doneTyping={() => updateDoneTyping(index, linesArr, parentWidth)}>
-                    <Text fontSize={{ base: "lg", md: "3xl" }} >
-                        {line}
-                    </Text>
+                <TypeText steps={line.length} typeSpeedSeconds={typeSpeedSeconds} doneTyping={() => updateDoneTyping(index, linesArr)}>
+                    {children
+                        ? children
+                        : <Text fontSize={{ base: "lg", md: "3xl" }} >
+                            {line}
+                        </Text>
+                    }
                 </TypeText>
             ))])
         });
     }, [])
 
     return (
-        <>
+        <VStack alignItems={align ? align : "start"} width={"80vw"} className="max-w-6xl" ref={stackWidthRef} spacing={"unset"}>
             {
                 components.map((Component, index) => (
                     <Component key={index} />
                 ))
             }
-        </>
+        </VStack>
+
     );
 };
 

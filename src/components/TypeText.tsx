@@ -19,6 +19,7 @@ const TypeText = ({ steps, typeSpeedSeconds, children, delaySeconds, doneTyping 
         setTimeout(() => {
             setShowAnimation(true)
         }, delaySeconds ? delaySeconds * 1000 : 0);
+
         setTimeout(() => {
             setCursor(noCursor)
             if (doneTyping) doneTyping()

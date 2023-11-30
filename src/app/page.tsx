@@ -71,29 +71,41 @@ const HomePage = () => {
 
   const typeSpeedSeconds = 1;
   const pageLoadDelaySeconds = 0.5;
+  const [turnCounter, setTurnCounter] = useState(0);
 
-  const stackWidthRef = useRef(null);
-  const parentDimensions = useDimensions(stackWidthRef)
+  const setNextTurn = (nextTurn: number) => {
+    setTurnCounter(turnCounter + 1);
+  }
+
+  const isMyTurn = (myPlace: number) => {
+    return turnCounter >= myPlace;
+  }
 
   // TODO: Keep track of when typing is done and then render the next section rather than relying on timing which is fragile
 
   return (
     <VStack p={10} spacing={10}>
-      <Box as="div" className='relative justify-self-center self-center w-[300px] h-[186px] sm:w-[400px] sm:h-[286px] md:w-[500px] md:h-[386px] lg:w-[600px] lg:h-[486px]'>
+      <Box as="div" className='relative justify-self-center self-center w-[300px] h-[186px] sm:w-[400px] sm:h-[286px] md:w-[500px] md:h-[386px] lg:w-[600px] lg:h-[486px]' lineHeight={1.2}>
         <Image style={{ objectFit: 'contain' }} className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
       </Box>
       <VStack spacing={10}>
-        <TypeText steps={header.length} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={pageLoadDelaySeconds}>
+        <TypeParagraph paragraph={header} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={pageLoadDelaySeconds} doneTypingCallback={() => setNextTurn(1)} align='center'>
           <Heading size={{ base: "lg", md: "3xl" }}>
             {header}
           </Heading>
-        </TypeText>
-        <VStack align={"start"} width={"90%"} ref={stackWidthRef}>
-          <TypeParagraph paragraph={introLines} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={typeSpeedSeconds + pageLoadDelaySeconds} desiredDimensions={parentDimensions} />
-        </VStack>
-        <VStack align={"start"} width={"90%"}>
-          <TypeParagraph paragraph={hook} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={(typeSpeedSeconds) + pageLoadDelaySeconds} desiredDimensions={parentDimensions} />
-        </VStack>
+        </TypeParagraph>
+        {/* <TypeText steps={header.length} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={pageLoadDelaySeconds} doneTyping={() => setNextTurn(1)}>
+          <Heading size={{ base: "lg", md: "3xl" }}>
+            {header}
+          </Heading>
+        </TypeText> */}
+        {isMyTurn(1) && (
+          <TypeParagraph paragraph={introLines} typeSpeedSeconds={typeSpeedSeconds} doneTypingCallback={() => setNextTurn(2)} />
+        )}
+
+        {isMyTurn(2) && (
+          <TypeParagraph paragraph={hook} typeSpeedSeconds={typeSpeedSeconds} doneTypingCallback={() => setNextTurn(3)} />
+        )}
       </VStack>
     </VStack>
     // <VStack p={10} spacing={10} overflow={'scroll'} className='text-xl'>

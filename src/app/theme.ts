@@ -19,8 +19,8 @@ const config: ThemeOverride = {
 }
 
 const fonts = {
-    body: '"IBM Plex Serif", sans-serif',
-    heading: 'Poppins, sans-serif',
+    body: 'Poppins, sans-serif',
+    heading: '"IBM Plex Serif", sans-serif',
 }
 const colors = {
     brand: baseTheme.colors.purple,
@@ -42,7 +42,7 @@ export default extendTheme(
     {
         config, fonts, colors
     },
-    withDefaultColorScheme({ colorScheme: 'brand' }),
+    // withDefaultColorScheme({ colorScheme: 'brand' }),
     withDefaultSize({ size: 'lg' })
 );
 
