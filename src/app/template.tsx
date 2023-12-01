@@ -1,10 +1,9 @@
-
 "use client"
-import { motion } from "framer-motion"
+import { Variants, motion } from "framer-motion"
 
-const variants = {
-    hidden: { opacity: 0, x: -200, y: 0 },
-    enter: { opacity: 1, x: 0, y: 0 },
+const variants: Variants = {
+    hidden: { opacity: 0, x: 0, y: 0, transition: { duration: 2 } },
+    enter: { opacity: 1, x: 0, y: 0, transition: { duration: 2 } },
 }
 
 const Template = ({ children }: { children: React.ReactNode }) => {
