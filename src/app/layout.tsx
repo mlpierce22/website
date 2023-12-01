@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import Script from "next/script";
 import "./globals.css";
 
-const RootLayout = ({ children }: { children: any }) => {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
