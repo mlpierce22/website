@@ -15,17 +15,19 @@ const Navbar = () => {
         { id: "nav-items-blog", name: 'Blog', icon: '📝', path: '/blog', variant: 'ghost', size: "xl" },
     ]
 
+    const hideThreshold = 'lg';
+
     return (
         <HStack p={4} justifyContent='space-between' className='border-b-2 dark:border-b-slate-700 border-b-slate-200'>
-            <Button hideFrom='md' onClick={toggleColorMode} variant={"outline"} w={"fit-content"} ml={"auto"}>{colorMode === 'light' ? "🌙" : "☀️"}</Button>
+            <Button hideFrom={hideThreshold} onClick={toggleColorMode} variant={"outline"} w={"fit-content"} ml={"auto"}>{colorMode === 'light' ? "🌙" : "☀️"}</Button>
             <IconButton
                 icon={<HamburgerIcon />}
                 variant={"outline"}
                 aria-label={"Open Menu"}
-                hideFrom='md'
+                hideFrom={hideThreshold}
                 onClick={onOpen}
             />
-            <HStack hideBelow='md' flexGrow={1} justifyContent={'center'}>
+            <HStack hideBelow={hideThreshold} flexGrow={1} justifyContent={'center'}>
                 <HStack flexGrow={1} justifyContent={'center'}>
                     <NavItemsList navItems={navItems} />
                 </HStack>
