@@ -5,7 +5,7 @@ import { hammer } from '@/animations';
 
 export const UnderConstruction = () => {
     return (
-        <Center height={"100%"}>
+        <Center height={"100%"} mt={"50%"}>
             <Box textAlign="center">
                 <Icon as={IoIosHammer} boxSize={100}
                     css={{

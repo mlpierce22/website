@@ -33,7 +33,7 @@ const RootLayout = ({ children }: { children: any }) => {
         <Providers>
           <Navbar />
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <VStack w={"100%"}>
+          <VStack w={"100%"} h={"100%"}>
             {children}
           </VStack>
           <Footer />
