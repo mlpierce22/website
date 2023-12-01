@@ -15,7 +15,7 @@ const GradientShadow = ({ children, show }: GradientShadowProps) => {
             </Fade>
 
 
-            <Box as="div" className="relative flex items-center justify-center">
+            <Box as="div" className="relative flex items-center justify-center w-full h-full">
                 {children}
             </Box>
         </Box>

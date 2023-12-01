@@ -19,7 +19,8 @@ type NavProps = {
 
 const NavItemsList = ({ navItems, iconOnly, size }: NavProps) => {
     const router = useRouter();
-    const navigate = (path: string, isExternal: boolean) => {
+    const navigate = (path: string, isExternal: boolean, event: any) => {
+        event.stopPropagation();
         if (isExternal) {
             window.open(path, '_blank');
         } else {
@@ -30,9 +31,9 @@ const NavItemsList = ({ navItems, iconOnly, size }: NavProps) => {
         <>
             {navItems.map((item, index) => {
                 return item.icon && !item.name || iconOnly ?
-                    <Button onClick={() => navigate(item.path, !!item.isExternal)} key={`${index}-${item.id}-nav-icon`} size={size}>{item.icon}</Button>
+                    <Button onClick={(e) => navigate(item.path, !!item.isExternal, e)} key={`${index}-${item.id}-nav-icon`} size={size}>{item.icon}</Button>
                     :
-                    <Button leftIcon={item.icon || ''} onClick={() => navigate(item.path, !!item.isExternal)} variant={item.variant} key={`${index}-${item.id}-nav-item`} size={size}>{item.name}</Button>
+                    <Button leftIcon={item.icon || ''} onClick={(e) => navigate(item.path, !!item.isExternal, e)} variant={item.variant} key={`${index}-${item.id}-nav-item`} size={size}>{item.name}</Button>
             })
             }
         </>
