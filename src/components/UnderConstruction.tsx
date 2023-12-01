@@ -5,16 +5,16 @@ import { hammer } from '@/animations';
 
 export const UnderConstruction = () => {
     return (
-        <Center height={"100%"} mt={"50%"}>
+        <Center height={"100%"} my={"30vh"}>
             <Box textAlign="center">
                 <Icon as={IoIosHammer} boxSize={100}
                     css={{
                         animation: `${hammer} 2s linear infinite`
                     }}
                 />
-                <Heading as="h2" size="lg" bgGradient='linear(to-r, red.500, yellow.500)'
+                <Heading as="h2" size={{ base: "lg", md: "2xl" }} px={10} className="leading-snug" bgGradient='linear(to-r, red.500, yellow.500)'
                     bgClip='text' mt={4}>Page Under Construction</Heading>
-                <Text mt={2}>{"Thanks for checking out my site! I'm still working on it but it should be up soon!"}</Text>
+                <Text mt={2} px={10} fontSize={{ base: "lg", md: "2xl" }} >{"Thanks for checking out my site! I'm still working on it but it should be up soon!"}</Text>
             </Box>
         </Center>
     );
