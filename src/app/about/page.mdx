@@ -1,49 +1,64 @@
+import MarkdownImage, { LazyMarkdownImage } from '../../components/MarkdownImage'
+import MarkdownVideo, { LazyMarkdownVideo } from '../../components/MarkdownVideo'
+
+import ResponsiveYTVideo from '../../components/ResponsiveYTVideo'
+import PoleVault from '../../../public/pole-vault.jpg'
+import CrossCountryRace from '../../../public/cross-country-race.jpg'
+import Track400m from '../../../public/track-400.jpg'
+
 # About Me
 ## In the Tech World
 I started in tech by modding Minecraft, leading to a Computer Science degree with a minor in Technology Information Management from UC Santa Cruz. During my time in school, I was involved in entrepreneurship clubs, worked as the cofounder of a business catering to the challenges of running a small business in Santa Cruz ([Kahzum](/projects)), and was a Fellow/Lead in the Tech4Good lab. See a quick timeline below:
     {/* TODO: Make interactive */}
-**TODAY**: Looking for new opportunities post-Camio, particularly in AI, LLMs, and startups (or teams in bigger companies that function like startups)
-**August 2021-October 2023**: Fullstack Software Engineer -> Senior Software Engineer at [Camio](https://camio.com)
-**July 2020-August 2021**: Frontend Engineering Intern at Camio, Covid (yay), Graduated from UCSC🎉
-
-****: Graduated from Colfax High School
-**May 2017**: Graduated from Colfax High School
-
-
-- Founding role/tech lead at the [Tech4good Lab](https://tech4good.soe.ucsc.edu/#/). P.S. I lead the team that built this website! Learn more in [projects](/projects).
-- Frontend Engineering Intern, then Software Engineer at [Camio](https://camio.com), contributing across the stack and implementing core features. P.S. I also built this website! Learn more in [projects](/projects).
+* **TODAY**: Looking for new opportunities post-Camio, particularly in AI, LLMs, and startups (or teams in bigger companies that function like startups) and working on a few side project that I hope to release soon.
+* **August 2021-October 2023**: Fullstack Software Engineer -> Senior Software Engineer at [Camio](https://camio.com)
+* **July 2020-August 2021**: Frontend Engineering Intern at Camio, Covid (yay), Graduated from UCSC🎉
+* **June 2019-July 2020**: Worked a Fellow/Lead in the Tech4Good lab where I got my first experience leading teams through building both Causeway and the Tech4Good website.
+* **March 2018**: Convinced David to let me join the Tech4Good lab, started working on [Causeway](/projects). Founded Kahzum to help small businesses in Santa Cruz.
+* **September 2017**: Started as a freshman at UC Santa Cruz, tried to join the Tech4Good lab, but was rejected. Instead, I ended up being a grader for TIM 80L where [I wrote a script](https://github.com/mlpierce22/TIM-80L-Scripts-for-Grading) that automated sending out emails to students as status updates on their grades. 
+* **May 2017**: Graduated from Colfax High School
 
 ## My Hobbies
 
 ### Pole Vaulting
-    <img src="/pole-vault.jpg" alt="Pole Vault Practice" className="!mb-0" />
-    <span>_A solid takeoff at college practice_</span>
+    <MarkdownImage src={PoleVault} alt="Pole Vault Practice" caption="A solid takeoff at practice in college" priority/>
 
-
-    <video controls className="!mb-0">
-          <source src="/pole-vault-vid.mp4" type="video/mp4"></source>
-  Your browser does not support the video tag.
-      </video>
-    <span>_This is from when I was competing unattached post-college._</span>
+    <MarkdownVideo src="/pole-vault-vid.mp4" caption="This is from when I was competing unattached post-college" />
 
 I spent 9 years of my life (freshman year of high school to one year out of college) studying and practicing pole vault. I absolutely love this sport and everything it has given me - from accolates to very valuable life lessons about the fragility of confidence and importance of being uncomfortable. The community around it is also fantastic - the coolest people you will ever meet will be pole vaulters. As a result, I plan to come back and coach at some point in the future.
 
 ### Skiing
 
+I've been skiing since I could walk. I absolutely love it and try to go as much as possible. Usually, during the winter you will find me on a ski trip either with family or friends. Below are some obligatory videos of my skiing prowress:
+
+    <LazyMarkdownVideo src="/skiing.mp4" caption="I'm a professional" />
+
+And of course can't forget this gem:
+
+    <ResponsiveYTVideo embedUrl="https://www.youtube-nocookie.com/embed/UjSv_TK0vLA?si=nrY4TP7edtr9mbhX" />
+
 ### Running
+
+    <LazyMarkdownImage src={CrossCountryRace} alt="Cross Country" caption="Me as a baby - idk if I won" />
+
+I've been running since first grade (I used to run during recess because I'm cool 😎). I ran cross country throughout middle school and high school. Turns out, you also have to run when you compete in college.
+
+    <LazyMarkdownImage src={Track400m} alt="Track and Field 400m" caption="Regretting my life in this one" />
+
+These days, I run for fun and to stay in shape. I'm currently waiting for the price of marathons to go down so I can run one.
+
+Want to go for a run or see some unhinged memes? Follow me on [Strava](https://www.strava.com/athletes/7363472)
 
 ### Singing
 
-### Travelling
+I sang in chamber choir in high school and concert choir in college in addition to various individual performances across the years.
+
+### Traveling
+See my [travel page.](/travel)
 
 
-## What Drives Me
-My passion lies in creating impactful software solutions and balancing innovation with functionality. I'm super excited by Career highlights thus far:
-- Spearheading the website and [Causeway](/projects) at Tech4good Lab
-- Early engineering role at Camio, shaping significant projects like live streaming, the firmware, the application experience, and more
-
-## Where I am now
-- Exploring new opportunities post-Camio, particularly in AI, LLMs, and startups (or teams in bigger companies that function like startups)
+## What now?
+Today, I'm exploring new opportunities post-Camio, particularly in AI, LLMs, and startups (or teams in bigger companies that function like startups). I'm also working on a few side projects, including this website and some LLM based apps that I hope to release soon.
 
 ## Let's Connect
 Interested in collaborating, ideating, or just chatting? Reach out via [LinkedIn](https://linkedin.com/in/malapier) or [email](mailto:mlpierce22@gmail?subject=Hello%20Mason).
