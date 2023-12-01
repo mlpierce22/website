@@ -11,8 +11,11 @@ const Navbar = () => {
         { id: "nav-items-home", name: 'Home', icon: '🏠', path: '/', variant: 'ghost', size: "xl" },
         { id: "nav-items-about", name: 'About Me', icon: '👤', path: '/about', variant: 'ghost', size: "xl" },
         { id: "nav-items-projects", name: 'Projects', icon: '📚', path: '/projects', variant: 'ghost', size: "xl" },
-        { id: "nav-items-bookmarks", name: 'Bookmarks', icon: '🔖', path: '/bookmarks', variant: 'ghost', size: "xl" },
-        { id: "nav-items-blog", name: 'Blog', icon: '📝', path: '/blog', variant: 'ghost', size: "xl" },
+        // Later
+        // { id: "nav-items-bookmarks", name: 'Bookmarks', icon: '🔖', path: '/bookmarks', variant: 'ghost', size: "xl" },
+        // { id: "nav-items-travel", name: 'Travel', icon: '✈️', path: '/travel', variant: 'ghost', size: "xl" },
+        // Later
+        // { id: "nav-items-blog", name: 'Blog', icon: '📝', path: '/blog', variant: 'ghost', size: "xl" },
     ]
 
     const hideThreshold = 'lg';

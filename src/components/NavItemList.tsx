@@ -5,7 +5,7 @@ export type NavItem = {
     id: string,
     name: string,
     path: string,
-    variant: string,
+    variant: "solid" | "outline" | "ghost" | "link",
     icon?: any,
     size?: "sm" | "md" | "lg" | "xs" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl"
     isExternal?: boolean
