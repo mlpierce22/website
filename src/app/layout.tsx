@@ -17,6 +17,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
+        <meta name="description" content="Mason Pierce's personal portfolio website containing projects, and experience" />
       </head>
       <body suppressHydrationWarning>
 
