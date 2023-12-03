@@ -10,7 +10,7 @@ const ProjectsPage = () => {
   const { setNextTurn, isMyTurn } = useTurnBasedRender(100);
 
   const header = useMemo(() => (
-    "Projects made with ❤️"
+    "My Work (made with ❤️ of course)"
   ), [])
 
   const typeSpeedSeconds = 1;
