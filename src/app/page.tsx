@@ -46,7 +46,7 @@ const HomePage = () => {
             <Image style={{ objectFit: 'contain' }} className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
           </Box>
           <HStack spacing={10} mt={10}>
-            <NavItemsList navItems={imageButtons} iconOnly={iconsOnly} size={'lg'} />
+            <NavItemsList navItems={imageButtons} iconOnly={iconsOnly} size={'lg'} showGradient={true} />
           </HStack>
         </VStack>
       </SlideFade>

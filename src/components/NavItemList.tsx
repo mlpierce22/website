@@ -1,5 +1,6 @@
 import { Button, ThemingProps } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
+import GradientShadow from './GradientShadow';
 
 export type NavItem = {
     id: string,
@@ -7,17 +8,18 @@ export type NavItem = {
     path: string,
     variant: "solid" | "outline" | "ghost" | "link",
     icon?: any,
-    size?: "sm" | "md" | "lg" | "xs" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl"
     isExternal?: boolean
 }
 
+type Sizes = "sm" | "md" | "lg" | "xs" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl"
 type NavProps = {
     navItems: NavItem[]
     iconOnly?: boolean
-    size?: "sm" | "md" | "lg" | "xs" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl"
+    size?: Sizes | { [key in (Sizes | "base")]?: Sizes }
+    showGradient?: boolean
 }
 
-const NavItemsList = ({ navItems, iconOnly, size }: NavProps) => {
+const NavItemsList = ({ navItems, iconOnly, size, showGradient }: NavProps) => {
     const router = useRouter();
     const navigate = (path: string, isExternal: boolean, event: any) => {
         event.stopPropagation();
@@ -31,9 +33,13 @@ const NavItemsList = ({ navItems, iconOnly, size }: NavProps) => {
         <>
             {navItems.map((item, index) => {
                 return item.icon && !item.name || iconOnly ?
-                    <Button onClick={(e) => navigate(item.path, !!item.isExternal, e)} key={`${index}-${item.id}-nav-icon`} size={size}>{item.icon}</Button>
+                    <GradientShadow show={!!showGradient} key={`${index}-${item.id}-nav-icon`} fit={true}>
+                        <Button onClick={(e) => navigate(item.path, !!item.isExternal, e)} size={size}>{item.icon}</Button>
+                    </GradientShadow>
                     :
-                    <Button leftIcon={item.icon || ''} onClick={(e) => navigate(item.path, !!item.isExternal, e)} variant={item.variant} key={`${index}-${item.id}-nav-item`} size={size}>{item.name}</Button>
+                    <GradientShadow show={!!showGradient} key={`${index}-${item.id}-nav-item`} fit={true}>
+                        <Button leftIcon={item.icon || ''} onClick={(e) => navigate(item.path, !!item.isExternal, e)} variant={item.variant} size={size}>{item.name}</Button>
+                    </GradientShadow>
             })
             }
         </>
