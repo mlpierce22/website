@@ -25,7 +25,7 @@ const ProjectCard = ({ title, description, imageId, buttons, callback }: Project
         if (callback) callback();
     }, []);
     return (
-        <SlideFade in={true} offsetY='100%' transition={{ enter: { duration: 1 } }}>
+        <SlideFade in={true} offsetY='100%' transition={{ enter: { duration: 1 } }} className="h-full">
             <GradientShadow show={show}>
                 <Card boxShadow="lg" rounded="lg" variant={"outline"} cursor={"pointer"} onMouseOver={() => setShow(true)}
                     onMouseLeave={() => setShow(false)}
