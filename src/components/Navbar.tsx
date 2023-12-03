@@ -8,14 +8,15 @@ const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode()
     const { isOpen, onOpen, onClose } = useDisclosure()
     const navItems: NavItem[] = [
-        { id: "nav-items-home", name: 'Home', icon: '🏠', path: '/', variant: 'ghost', size: "xl" },
-        { id: "nav-items-about", name: 'About Me', icon: '👤', path: '/about', variant: 'ghost', size: "xl" },
-        { id: "nav-items-projects", name: 'Projects', icon: '📚', path: '/projects', variant: 'ghost', size: "xl" },
+        { id: "nav-items-home", name: 'Home', icon: '🏠', path: '/', variant: 'ghost' },
+        { id: "nav-items-about", name: 'About Me', icon: '👤', path: '/about', variant: 'ghost' },
+        { id: "nav-items-projects", name: 'Projects', icon: '📚', path: '/projects', variant: 'ghost' },
+        { id: "nav-items-projects", name: 'Resume', icon: '📄', path: 'https://docs.google.com/document/d/1MMG5e2tqUylj28SYSk2iXYyEQ-oo53tLCewux9yMtpc/edit', variant: 'ghost', isExternal: true },
         // Later
-        // { id: "nav-items-bookmarks", name: 'Bookmarks', icon: '🔖', path: '/bookmarks', variant: 'ghost', size: "xl" },
-        // { id: "nav-items-travel", name: 'Travel', icon: '✈️', path: '/travel', variant: 'ghost', size: "xl" },
+        // { id: "nav-items-bookmarks", name: 'Bookmarks', icon: '🔖', path: '/bookmarks', variant: 'ghost' },
+        // { id: "nav-items-travel", name: 'Travel', icon: '✈️', path: '/travel', variant: 'ghost' },
         // Later
-        // { id: "nav-items-blog", name: 'Blog', icon: '📝', path: '/blog', variant: 'ghost', size: "xl" },
+        // { id: "nav-items-blog", name: 'Blog', icon: '📝', path: '/blog', variant: 'ghost' },
     ]
 
     const hideThreshold = 'lg';
