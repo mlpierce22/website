@@ -8,7 +8,6 @@ import GptWeightlifting from "../../public/projects/gpt-weightlifting.png";
 import GptSitesmith from "../../public/projects/gpt-sitesmith.png";
 import GptCoverLetter from "../../public/projects/gpt-cover-letter.png";
 import GptLingoAmigo from "../../public/projects/gpt-lingo-amigo.png";
-import GithubProjects from "../../public/projects/github-projects.png";
 
 type ImageId = typeof ProjectId[keyof typeof ProjectId]
 
@@ -21,7 +20,6 @@ enum ProjectId {
     GPT_SITESMITH = "gpt-sitesmith",
     GPT_COVER_LETTER = "gpt-cover-letter",
     GPT_LINGO_AMIGO = "gpt-lingo-amigo",
-    GITHUB_PROJECTS = "github-projects",
 };
 
 const getProjectImage = (imageId: ImageId) => {
@@ -42,8 +40,6 @@ const getProjectImage = (imageId: ImageId) => {
             return GptCoverLetter;
         case ProjectId.GPT_LINGO_AMIGO:
             return GptLingoAmigo;
-        case ProjectId.GITHUB_PROJECTS:
-            return GithubProjects;
         default:
             return "";
     }
@@ -101,7 +97,7 @@ const projects: ProjectCardItems[] = [
         buttons: [
             {
                 id: "go-to-routing-algorithm",
-                name: "Check out the routing algorithm",
+                name: "Routing Algorithm",
                 path: "https://mlpierce22.github.io/kahzum-route-organizer/",
                 variant: "outline",
                 icon: <ExternalLinkIcon />,
@@ -162,7 +158,7 @@ const projects: ProjectCardItems[] = [
         buttons: [
             {
                 id: "try-lingo-amigo",
-                name: "Practice your conversational Spanish",
+                name: "Practice Spanish",
                 path: "https://chat.openai.com/g/g-EByaIrvso-lingo-amigo",
                 variant: "outline",
                 icon: <ExternalLinkIcon />,
