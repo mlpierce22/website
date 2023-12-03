@@ -14,7 +14,7 @@ export const UnderConstruction = () => {
                 />
                 <Heading as="h2" size={{ base: "lg", md: "2xl" }} px={10} className="leading-snug" bgGradient='linear(to-r, red.500, yellow.500)'
                     bgClip='text' mt={4}>Page Under Construction</Heading>
-                <Text mt={2} px={10} fontSize={{ base: "lg", md: "2xl" }} >{"Thanks for checking out my site! I'm still working on it but it should be up soon!"}</Text>
+                <Text mt={2} px={10} fontSize={{ base: "lg", md: "2xl" }} >{"Still working on this page! Check back later!"}</Text>
             </Box>
         </Center>
     );
