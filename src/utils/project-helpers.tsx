@@ -51,12 +51,12 @@ const getProjectImage = (imageId: ImageId) => {
 const projects: ProjectCardItems[] = [
     {
         title: "Tech4Good Lab Website",
-        description: "A website for a lab focused on technology for social good.",
+        description: "A website for the Tech4Good lab - a lab focused on using social computing to support community work.",
         imageId: ProjectId.T4G_WEBSITE,
         buttons: [
             {
                 id: "go-to-t4g-website",
-                name: "Check out the site",
+                name: "Visit Tech4Good",
                 path: "https://tech4good.soe.ucsc.edu",
                 variant: "outline",
                 icon: <ExternalLinkIcon />,
@@ -66,7 +66,7 @@ const projects: ProjectCardItems[] = [
     },
     {
         title: "Camio Website",
-        description: "An innovative website providing smart camera services.",
+        description: "The website for Camio - an ai search and alert engine for video.",
         imageId: ProjectId.CAMIO_WEBSITE,
         buttons: [
             {
@@ -81,7 +81,7 @@ const projects: ProjectCardItems[] = [
     },
     {
         title: "Causeway",
-        description: "An app for learning through micro-role hierarchies.",
+        description: "An app for learning web development while simultaneously contributing to real-world, underserved community projects through micro-role hierarchies.",
         imageId: ProjectId.T4G_CAUSEWAY,
         buttons: [
             {
@@ -95,13 +95,28 @@ const projects: ProjectCardItems[] = [
         ],
     },
     {
+        title: "Kahzum - College Startup",
+        description: "A startup I launched in college that unfortunately didn't succeed.",
+        imageId: ProjectId.KAHZUM_WEBSITE,
+        buttons: [
+            {
+                id: "go-to-routing-algorithm",
+                name: "Check out the routing algorithm",
+                path: "https://mlpierce22.github.io/kahzum-route-organizer/",
+                variant: "outline",
+                icon: <ExternalLinkIcon />,
+                isExternal: true,
+            },
+        ],
+    },
+    {
         title: "Get Me Into Weightlifting",
-        description: "An OpenAI GPT model assisting users in starting their weightlifting journey.",
+        description: "An OpenAI GPT assisting beginner users in starting their weightlifting journey.",
         imageId: ProjectId.GPT_WEIGHTLIFTING,
         buttons: [
             {
                 id: "try-weightlifting-gpt",
-                name: "Try the App",
+                name: "Get started weightlifting",
                 path: "https://chat.openai.com/g/g-qQVpDNs1i-get-me-into-weight-lifting",
                 variant: "outline",
                 icon: <ExternalLinkIcon />,
@@ -111,12 +126,12 @@ const projects: ProjectCardItems[] = [
     },
     {
         title: "SiteSmith",
-        description: "A GPT model designed to help with website creation and design.",
+        description: "An OpenAI GPT designed to help you plan out what to put on your personal portfolio website.",
         imageId: ProjectId.GPT_SITESMITH,
         buttons: [
             {
                 id: "try-sitesmith",
-                name: "Try SiteSmith",
+                name: "Plan your portfolio site",
                 path: "https://chat.openai.com/g/g-GBXMSmJIY-sitesmith",
                 variant: "outline",
                 icon: <ExternalLinkIcon />,
@@ -126,12 +141,12 @@ const projects: ProjectCardItems[] = [
     },
     {
         title: "Cover Letter Composer",
-        description: "A GPT application for crafting professional cover letters.",
+        description: "An OpenAI GPT designed to craft professional cover letters.",
         imageId: ProjectId.GPT_COVER_LETTER,
         buttons: [
             {
                 id: "try-cover-letter-composer",
-                name: "Try the App",
+                name: "Compose a cover letter",
                 path: "https://chat.openai.com/g/g-KAKbAzgBD-cover-letter-composer",
                 variant: "outline",
                 icon: <ExternalLinkIcon />,
@@ -142,12 +157,12 @@ const projects: ProjectCardItems[] = [
     },
     {
         title: "Lingo Amigo",
-        description: "A language learning assistant powered by GPT technology.",
+        description: "An OpenAI GPT designed to help you conversationally learn Spanish.",
         imageId: ProjectId.GPT_LINGO_AMIGO,
         buttons: [
             {
                 id: "try-lingo-amigo",
-                name: "Try Lingo Amigo",
+                name: "Practice your conversational Spanish",
                 path: "https://chat.openai.com/g/g-EByaIrvso-lingo-amigo",
                 variant: "outline",
                 icon: <ExternalLinkIcon />,
@@ -155,29 +170,6 @@ const projects: ProjectCardItems[] = [
             },
 
         ],
-    },
-    // TODO: Remove this and list specific projects
-    {
-        title: "GitHub Projects",
-        description: "Various projects and experiments hosted on GitHub.",
-        imageId: ProjectId.GITHUB_PROJECTS,
-        buttons: [
-            {
-                id: "view-github",
-                name: "View on GitHub",
-                path: "https://github.com/yourusername", // Replace with your GitHub profile URL
-                variant: "outline",
-                icon: <ExternalLinkIcon />,
-                isExternal: true,
-            },
-
-        ],
-    },
-    {
-        title: "Kahzum - College Startup",
-        description: "A startup I launched in college that unfortunately didn't succeed.",
-        imageId: ProjectId.KAHZUM_WEBSITE,
-        buttons: [],
     },
 ];
 
