@@ -13,7 +13,7 @@ type ImageId = typeof ProjectId[keyof typeof ProjectId]
 
 enum ProjectId {
     T4G_WEBSITE = "tech4good-website",
-    KAHZUM_WEBSITE = "kahzum-website",
+    KAHZUM_WEBSITE = "kahzum",
     T4G_CAUSEWAY = "tech4good-causeway",
     CAMIO_WEBSITE = "camio-website",
     GPT_WEIGHTLIFTING = "gpt-weightlifting",
