@@ -2,6 +2,9 @@ import {
     type ThemeOverride, extendTheme, withDefaultColorScheme, theme as baseTheme, withDefaultSize
 } from '@chakra-ui/react'
 
+// Slider
+import 'keen-slider/keen-slider.min.css'
+
 /** Can import 100->700 (ibm) or 100-900 (poppins) each with italic variant. Import as necessary */
 import '@fontsource/ibm-plex-serif/100.css';
 import '@fontsource/ibm-plex-serif/400.css';
