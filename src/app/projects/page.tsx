@@ -19,7 +19,7 @@ const ProjectsPage = () => {
   return (
     <VStack p={10} spacing={10} >
       <TypeParagraph paragraph={header} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={pageLoadDelaySeconds} doneTypingCallback={() => setNextTurn(1)} align='center'>
-        <Heading size={{ base: "lg", sm: "xl", lg: "3xl" }} className='leading-snug'>
+        <Heading size={{ base: "md", sm: "lg", lg: "xl" }} className='leading-snug'>
           {header}
         </Heading>
       </TypeParagraph>
