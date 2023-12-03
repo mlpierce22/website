@@ -1,0 +1,50 @@
+import ImageSlider from '../../../components/ImageSlider'
+import Landing1Image from '../../../../public/projects/camio-website/landing-1.png'
+import Landing2Image from '../../../../public/projects/camio-website/landing-2.png'
+import Landing3Image from '../../../../public/projects/camio-website/landing-3.png'
+import WhyCamioImage from '../../../../public/projects/camio-website/why-camio.png'
+import GymImage from '../../../../public/projects/camio-website/gym-page.png'
+import EducationImage from '../../../../public/projects/camio-website/education.png'
+import WebinarsImage from '../../../../public/projects/camio-website/webinars.png'
+import DIYImage from '../../../../public/projects/camio-website/diy.png'
+import SolutionsImage from '../../../../public/projects/camio-website/solutions.png'
+
+# Camio Website
+
+## Overview
+- **Date:** 2020
+- **Technologies Used:** Nuxt.js, Vue.js, Typescript, SCSS, Bootstrap
+- **Live Link:** [Visit Project](https://camio.com)
+
+## Description
+This was one of my first projects at Camio. Our previous website was built using Java Servlet Pages and was getting increasingly difficult to maintain. The goals of this project were to massively increase development speed so we could iterate on our message quickly and just generally update the look and feel of the website.
+
+## Key Features
+- **SEO Friendly**: Nuxt.js is great for SEO because it utilizes SSR to render the page on the server and then send the HTML to the client. This means that search engines can crawl the site and index it properly. Nuxt also has built in optimizations for performance that speed up load times.
+- **Decoupled From Monolith**: The previous website was built using Java Servlet Pages and was tightly coupled to the monolith. This made it difficult to make changes to the website because we had to deploy the entire monolith every time we wanted to make a change. Now, the website is completely decoupled from the monolith and can be deployed independently.
+- **Automated deployments**: We used Google AppEngine to host the website. We set up a CI/CD pipeline using Github Actions to automatically deploy as we went through our review cycle.
+- **Refreshed Look**: Camio was originally built as a consumer product. Now, as a B2B company, it made sense to change the style to reflect that. We used blues and grays to give the site a professional, trustworthy feel.
+
+## Screenshots
+        <ImageSlider imageUrls={[]} images={[Landing1Image, Landing2Image, Landing3Image, WhyCamioImage, GymImage, EducationImage, WebinarsImage, DIYImage, SolutionsImage]} />
+
+## Challenges and Solutions
+When building this, there was a bit of a learning curve to learning how SSR works and that made it pretty confusing initially. Once I internalized that, it was relatively smooth sailing until Nuxt3 was released. Then we were kind of stuck because they didn't give a good way of migrating from Nuxt2 to Nuxt3. We ended up just staying on Nuxt2 and it worked out fine.
+
+## Lessons Learned
+I learned that there are important key competencies that a company should keep in mind when deciding how to build products. In hindsight, in a startup environment, it makes more sense to pay for a service like Squarespace, Wix, or Webflow to build a website. It's not worth the time to build a website from scratch when you could be working on the core product. Even though development time was extremely fast, we still needed an engineer in the loop to make changes for marketing and that time would have been better spent on the core product.
+
+## Future Improvements
+List potential enhancements or features you plan to add in the future.
+
+## How to Run/Use
+Provide instructions on how to install, run, or use your project, if applicable.
+
+## Credits and Acknowledgements
+- Worked closely with my coworker, Gabriella, to develop this project
+- [Nuxt.js](https://nuxtjs.org/)
+- [Vue.js](https://vuejs.org/)
+- [Bootstrap](https://getbootstrap.com/)
+- [SCSS](https://sass-lang.com/)
+
+... and various other libraries and packages
