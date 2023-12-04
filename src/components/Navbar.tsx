@@ -42,8 +42,8 @@ const Navbar = () => {
                     <DrawerContent>
                         <DrawerCloseButton />
 
-                        <VStack p={4} mt={4} justifyContent='space-between' alignItems={"start"} mb={"auto"} ml={"auto"} mr="auto">
-                            <NavItemsList navItems={navItems} />
+                        <VStack p={4} mt={4} justifyContent='space-between' mb={"auto"} ml={"auto"} mr="auto">
+                            <NavItemsList navItems={navItems} callbackWhenClicked={onClose} />
                         </VStack>
                         <Footer />
                     </DrawerContent>
