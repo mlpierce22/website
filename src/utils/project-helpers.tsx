@@ -91,8 +91,8 @@ const projects: ProjectCardItems[] = [
         ],
     },
     {
-        title: "Kahzum - College Startup",
-        description: "A startup I launched in college that unfortunately didn't succeed.",
+        title: "Kahzum",
+        description: "A startup I launched in college that helped small businesses better understand in-store customer behavior. Eventually it pivoted to be a same-day delivery solution for small business during the pandemic.",
         imageId: ProjectId.KAHZUM_WEBSITE,
         buttons: [
             {
