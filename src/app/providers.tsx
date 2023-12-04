@@ -1,9 +1,9 @@
 'use client'
 import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider } from '@chakra-ui/react'
-import { theme } from './theme';
+import theme from './theme';
 
-export const Providers = ({
+const Providers = ({
     children
 }: {
     children: React.ReactNode
@@ -16,3 +16,5 @@ export const Providers = ({
         </CacheProvider>
     )
 }
+
+export default Providers;

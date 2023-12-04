@@ -1,0 +1,38 @@
+import ImageSlider from '../../../components/ImageSlider'
+import LandingImage from '../../../../public/projects/causeway/landing.png'
+import Landing2Image from '../../../../public/projects/causeway/landing-2.png'
+import IntroToHtmlImage from '../../../../public/projects/causeway/intro-to-html.png'
+import FormattingImage from '../../../../public/projects/causeway/formatting.png'
+import TextStylesImage from '../../../../public/projects/causeway/text-styles.png'
+
+# Causeway: Learning Through Micro-role Heirarchies
+
+## Overview
+- **Date:** 2018-2020
+- **Technologies Used:** Angular, Rxjs, Typescript, HTML, CSS
+- **Live Link:** [View Project](https://causeway.soe.ucsc.edu/#/)
+
+## Description
+During my tenure at the Tech4good Lab, I dedicated most of my efforts to developing Causeway, the lab's primary platform. Designed to teach web development skills to users of all backgrounds, Causeway enables learning through real-world projects for community causes, like supporting non-profits. This approach aims to mirror workplace learning, where skills are often acquired in the process of contributing to company projects. Our work on Causeway's unique micro-role hierarchy and situated learning approach garnered a [best paper honorable mention](https://tech4good.soe.ucsc.edu/assets/docs/chi-2019-ca.pdf), and there is another paper in the works focusing on the effectiveness of "doing-by-learning."
+
+## Key Contributions
+Since Fall 2018 to Summer 2020, I was involved in the development of Causeway, contributing to its strategic planning, design, and user testing. My main contributions included working with David, the head of the Tech4good Lab, on planning core interfaces, developing and maintaining the Stackblitz interface, creating GitHub learning examples, and leading usability tests. I also spearheaded a team for the final phase before a significant beta launch to David's CSE 175 class, serving around 155 students, and tackled issues encountered during the launch.
+
+### Classroom vs. Studio: Causeway's Core Interfaces
+As a research fellow in the Tech4good lab in summer 2019, I collaborated with David, another fellow, and a PhD student to define Causeway's research question. We agreed to test the efficacy of doing-by-learning versus traditional learning by incorporating both methods in Causeway. I co-designed the interfaces for the "Classroom" and "Studio" sections. The Classroom was developed for traditional learning and included a feature to show users "answers" for learning purposes, utilizing Stackblitz's in-browser IDE. We tackled several challenges in integrating Stackblitz, ensuring a smooth user experience despite its unreliability (detailed in Stackblitz Services for Reliability and Performance Improvements).
+
+### Stackblitz Services for Reliability and Performance Improvements
+Assigned to enhance Stackblitz's reliability, I developed "services" in Angular to embed Stackblitz instances into Causeway. These services managed error handling and user code saving, significantly improving performance and user experience. The services successfully supported around 150 students in CSE 175, with 90% encountering no major problems.
+
+### Scripting with the Github API
+For the Classroom component of Causeway, users followed a step-by-step workflow, requiring a start and end point for coding steps. We used Stackblitz to embed these steps from specific commit shas on GitHub. After identifying inefficiencies in tracking and updating commit shas, I created a Typescript script utilizing the GitHub API to automate the process, enhancing scalability and reducing human error.
+
+### Usability (UX) Testing
+Since summer 2019, I've conducted regular usability tests on Causeway. In fall 2019, I led a team to test the Classroom interface, combining QA and UX methodologies. We observed users, conducted post-test interviews, and assessed issues based on their severity. These findings were then used to create and prioritize issues on GitHub for ongoing improvements.
+
+## Screenshots
+        <ImageSlider imageUrls={[]} images={[LandingImage, Landing2Image, IntroToHtmlImage, FormattingImage, TextStylesImage]} />
+
+
+## Credits and Acknowledgements
+Mostly to David Lee for giving me this experience, but also to the other students around me who helped me learn and grow as a developer and a person.
