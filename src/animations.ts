@@ -19,9 +19,14 @@ export const typing = keyframes`
 `
 
 export const cursorBlink = keyframes`
-50% { border-color: transparent; }
-100% { border-color: white; }
+0% { opacity: 0; }
+50% { opacity: 1; }
+100% { opacity: 0; }
 `
+
+export const createCursorBlinkAnimation = (blinkSpeedPerSecond: number): string => {
+    return `${cursorBlink} ${blinkSpeedPerSecond}s infinite;`
+}
 
 export const createTypingAnimation = (chars: number, typeDuration: number, blinkSpeed: number, isInfinite: boolean = false): string => {
     return `${typing} ${typeDuration}s steps(${chars}) ${isInfinite ? 'infinite' : ''} alternate, ${cursorBlink} ${blinkSpeed}s infinite;`
