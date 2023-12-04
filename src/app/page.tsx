@@ -1,12 +1,12 @@
 'use client'
 import { wave } from '@/animations';
-import { Heading, VStack, HStack, useBreakpoint, Box, SlideFade } from '@chakra-ui/react';
+import { Heading, VStack, HStack, useBreakpoint, Box, SlideFade, Text } from '@chakra-ui/react';
 import Image from 'next/image'
 import NavItemsList, { NavItem } from '@/components/NavItemList';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { useMemo, useState } from 'react';
-import TypeParagraph from '@/components/TypeParagraph';
+import { useMemo } from 'react';
 import { useTurnBasedRender } from '@/hooks/useTurnBasedRender';
+import TypeIncrementally from '@/components/TypeIncrementally';
 
 const HomePage = () => {
 
@@ -23,10 +23,10 @@ const HomePage = () => {
   ]
 
   const header = useMemo(() => (
-    "Hey there, I'm Mason! 👋"
+    "Hey there, I'm Mason!"
   ), [])
 
-  const introLines = useMemo(() => (
+  const intro = useMemo(() => (
     "I'm a product-minded full-stack software engineer with a passion for building user-centric applications. My core expertise is in frontend specifically as it relates to enterprise with a security focus."
   ), [])
 
@@ -34,7 +34,6 @@ const HomePage = () => {
     "I'm currently looking for my next opportunity! I'm very interested in working at the intersection of AI and user experience. If you're looking for a software engineer with a passion for building products that people love, let's connect!"
   ), [])
 
-  const typeSpeedSeconds = 1;
   const pageLoadDelaySeconds = 0.5;
   const { setNextTurn, isMyTurn } = useTurnBasedRender();
 
@@ -50,21 +49,23 @@ const HomePage = () => {
           </HStack>
         </VStack>
       </SlideFade>
-      <VStack spacing={10}>
+      <VStack spacing={10} className='max-w-6xl' minHeight={"50vh"}>
         {isMyTurn(0) && (
-          <TypeParagraph paragraph={header} typeSpeedSeconds={typeSpeedSeconds} delaySeconds={pageLoadDelaySeconds} doneTypingCallback={() => setNextTurn(1)} align='center'>
-            <Heading size={{ base: "lg", md: "3xl" }} className='leading-snug'>
-              {header}
-            </Heading>
-          </TypeParagraph>
+          <Heading size={{ base: "lg", md: "3xl" }} className='leading-snug'>
+            <TypeIncrementally text={header} typingSpeed={50} endEmoji='👋' delaySeconds={pageLoadDelaySeconds} doneTyping={() => setNextTurn(1)} />
+          </Heading>
         )}
 
         {isMyTurn(1) && (
-          <TypeParagraph paragraph={introLines} typeSpeedSeconds={typeSpeedSeconds} doneTypingCallback={() => setNextTurn(2)} />
+          <Text fontSize={{ base: "lg", md: "3xl" }} className='leading-snug w-full'>
+            <TypeIncrementally text={intro} typingSpeed={10} doneTyping={() => setNextTurn(2)} />
+          </Text>
         )}
 
         {isMyTurn(2) && (
-          <TypeParagraph paragraph={hook} typeSpeedSeconds={typeSpeedSeconds} doneTypingCallback={() => setNextTurn(3)} />
+          <Text fontSize={{ base: "lg", md: "3xl" }} className='leading-snug w-full'>
+            <TypeIncrementally text={hook} typingSpeed={10} doneTyping={() => setNextTurn(3)} />
+          </Text>
         )}
 
         <SlideFade in={isMyTurn(3)} offsetY='20px' transition={{ enter: { duration: 2 } }}>
