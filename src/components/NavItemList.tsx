@@ -17,12 +17,14 @@ type NavProps = {
     iconOnly?: boolean
     size?: Sizes | { [key in (Sizes | "base")]?: Sizes }
     showGradient?: boolean
+    callbackWhenClicked?: (path: string) => void
 }
 
-const NavItemsList = ({ navItems, iconOnly, size, showGradient }: NavProps) => {
+const NavItemsList = ({ navItems, iconOnly, size, showGradient, callbackWhenClicked }: NavProps) => {
     const router = useRouter();
     const navigate = (path: string, isExternal: boolean, event: any) => {
         event.stopPropagation();
+        if (callbackWhenClicked) callbackWhenClicked(path);
         if (isExternal) {
             window.open(path, '_blank');
         } else {
