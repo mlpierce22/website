@@ -61,8 +61,8 @@ const TypeParagraph = ({ paragraph, typeSpeedSeconds, delaySeconds, doneTypingCa
                 if (doneTypingCallback) doneTypingCallback();
 
                 // Simply replace the rendered components with just the text element
-                setComponents(() => [
-                    memo(() => (
+                setComponents(() => {
+                    const MemoizedComponent = memo(() => (
                         <Box as="span">
                             {children ? children :
                                 <Text fontSize={{ base: "lg", md: "3xl" }} >
@@ -71,7 +71,13 @@ const TypeParagraph = ({ paragraph, typeSpeedSeconds, delaySeconds, doneTypingCa
                             }
                         </Box>
                     ))
-                ]);
+                    MemoizedComponent.displayName = "JustText";
+                    return [
+                        MemoizedComponent
+                    ]
+                }
+
+                );
 
 
             }
@@ -83,18 +89,25 @@ const TypeParagraph = ({ paragraph, typeSpeedSeconds, delaySeconds, doneTypingCa
 
             // Wait for it to be this line's turn
             await sleep(typeSpeedSeconds * (index + (delaySeconds || 0)));
-            setComponents((components) => [...components, memo(() => (
-                <TypeText steps={line.length} typeSpeedSeconds={typeSpeedSeconds} doneTyping={() => updateDoneTyping(index, linesArr)}>
-                    {children
-                        ? children
-                        : <Text fontSize={{ base: "lg", md: "3xl" }} >
-                            {line}
-                        </Text>
-                    }
-                </TypeText>
-            ))])
+            setComponents((components) => {
+                const MemoizedTypeTextComponent = memo(() => (
+                    <TypeText steps={line.length} typeSpeedSeconds={typeSpeedSeconds} doneTyping={() => updateDoneTyping(index, linesArr)}>
+                        {children
+                            ? children
+                            : <Text fontSize={{ base: "lg", md: "3xl" }} >
+                                {line}
+                            </Text>
+                        }
+                    </TypeText>
+                ));
+
+                MemoizedTypeTextComponent.displayName = 'MemoizedTypeTextComponent';
+
+                return [...components, MemoizedTypeTextComponent];
+            });
+
         });
-    }, [])
+    }, [children, delaySeconds, doneTypingCallback, paragraph, typeSpeedSeconds])
 
     return (
         <VStack alignItems={align ? align : "start"} width={"80vw"} className="max-w-6xl" ref={stackWidthRef} spacing={"unset"}>

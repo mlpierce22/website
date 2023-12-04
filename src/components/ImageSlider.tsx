@@ -51,7 +51,7 @@ const ImageSlider = ({ imageUrls, images, nextSlideSeconds }: ImageSliderProps) 
         <>
             <Box as="div" ref={sliderRef} className="keen-slider">
                 {(images ? images : imageUrls).map((imageUrl, index) => (
-                    <Box as="div" className="keen-slider__slide">
+                    <Box as="div" className="keen-slider__slide" key={`${index}-slide`}>
                         <LazyMarkdownImage
                             src={imageUrl}
                             alt={`Slide ${index + 1}`}

@@ -22,7 +22,7 @@ const ProjectCard = ({ title, description, imageId, buttons, callback }: Project
 
     useEffect(() => {
         if (callback) callback();
-    }, []);
+    }, [callback]);
     return (
         <SlideFade in={true} offsetY='100%' transition={{ enter: { duration: 1 } }} className="h-full">
             <GradientShadow show={true}>

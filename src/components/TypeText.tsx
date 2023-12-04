@@ -24,7 +24,7 @@ const TypeText = ({ steps, typeSpeedSeconds, children, delaySeconds, doneTyping 
             setCursor(noCursor)
             if (doneTyping) doneTyping()
         }, (typeSpeedSeconds * 1000));
-    }, []);
+    }, [delaySeconds, doneTyping, typeSpeedSeconds]);
 
 
 
