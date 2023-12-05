@@ -58,20 +58,27 @@ const HomePage = () => {
               <TypeIncrementally text={header} typingSpeed={50} endEmoji='👋' delaySeconds={pageLoadDelaySeconds} doneTyping={() => setNextTurn(1)} />
             </Heading>
           )}
+          <SlideFade in={isMyTurn(1)} offsetY='20px' transition={{ enter: { duration: 2 } }} className='w-full h-full'>
+            <VStack spacing={5}>
 
-          {isMyTurn(1) && (
-            <Text fontSize={responsiveFontSize} className='leading-snug w-full'>
-              <TypeIncrementally text={intro} typingSpeed={10} doneTyping={() => setNextTurn(2)} />
-            </Text>
-          )}
+              {/* {isMyTurn(1) && ( */}
+              <Text fontSize={responsiveFontSize} className='leading-snug w-full'>
+                {intro}
+                {/* <TypeIncrementally text={intro} typingSpeed={10} doneTyping={() => setNextTurn(2)} /> */}
+              </Text>
+              {/* )} */}
 
-          {isMyTurn(2) && (
-            <Text fontSize={responsiveFontSize} className='leading-snug w-full'>
-              <TypeIncrementally text={hook} typingSpeed={10} doneTyping={() => setNextTurn(3)} />
-            </Text>
-          )}
+              {/* {isMyTurn(2) && ( */}
+              <Text fontSize={responsiveFontSize} className='leading-snug w-full'>
+                {hook}
+                {/* <TypeIncrementally text={hook} typingSpeed={10} doneTyping={() => setNextTurn(3)} /> */}
+              </Text>
+              {/* )} */}
+
+            </VStack>
+          </SlideFade>
         </VStack>
-        <SlideFade in={isMyTurn(3)} offsetY='20px' transition={{ enter: { duration: 2 } }} className='w-full h-full'>
+        <SlideFade in={isMyTurn(1)} offsetY='20px' transition={{ enter: { duration: 2 } }} className='w-full h-full'>
           <Stack direction={{ base: "row", xl: "column" }} spacing={7} alignSelf={"start"} alignItems={"start"} justifyContent={{ base: "center" }} height={"50%"}>
             <NavItemsList navItems={imageButtons} size={{ base: "md", md: "lg", xl: "lg" }} />
           </Stack>
