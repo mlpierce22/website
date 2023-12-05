@@ -6,8 +6,12 @@ import { IoMdArrowBack } from "react-icons/io";
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
     const router = useRouter();
     return (
-        <Box as="div" p={10} className="prose md:prose-xl prose-stone dark:prose-invert overflow-scroll w-screen" >
-            {children}
-        </Box >
+        <VStack p={10} width={"100vw"}>
+            <Box as="div" className="prose md:prose-xl prose-stone dark:prose-invert overflow-scroll" >
+                <Button variant="solid" leftIcon={<IoMdArrowBack />} mb={10} width={"100%"} onClick={() => router.push("/projects")}>To Projects</Button>
+                {children}
+                <Button variant="solid" leftIcon={<IoMdArrowBack />} mt={10} width={"100%"} onClick={() => router.push("/projects")}>To Projects</Button>
+            </Box >
+        </VStack>
     )
 }
