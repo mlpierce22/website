@@ -46,21 +46,6 @@ const getProjectImage = (imageId: ImageId) => {
 }
 const projects: ProjectCardItems[] = [
     {
-        title: "Tech4Good Lab Website",
-        description: "A website for the Tech4Good lab - a lab focused on using social computing to support community work.",
-        imageId: ProjectId.T4G_WEBSITE,
-        buttons: [
-            {
-                id: "go-to-t4g-website",
-                name: "Visit Tech4Good",
-                path: "https://tech4good.soe.ucsc.edu",
-                variant: "outline",
-                icon: <ExternalLinkIcon />,
-                isExternal: true,
-            },
-        ],
-    },
-    {
         title: "Camio Website",
         description: "The website for Camio - an ai search and alert engine for video.",
         imageId: ProjectId.CAMIO_WEBSITE,
@@ -69,6 +54,21 @@ const projects: ProjectCardItems[] = [
                 id: "visit-camio",
                 name: "Visit Camio",
                 path: "https://camio.com",
+                variant: "outline",
+                icon: <ExternalLinkIcon />,
+                isExternal: true,
+            },
+        ],
+    },
+    {
+        title: "Tech4Good Lab Website",
+        description: "A website for the Tech4Good lab - a lab focused on using social computing to support community work.",
+        imageId: ProjectId.T4G_WEBSITE,
+        buttons: [
+            {
+                id: "go-to-t4g-website",
+                name: "Visit Tech4Good",
+                path: "https://tech4good.soe.ucsc.edu",
                 variant: "outline",
                 icon: <ExternalLinkIcon />,
                 isExternal: true,
