@@ -18,7 +18,7 @@ const ProjectsPage = () => {
 
   return (
     <VStack p={10} spacing={10} width={"100%"}>
-      <Heading size={{ base: "md", sm: "lg", lg: "xl" }} className='leading-snug whitespace-nowrap'>
+      <Heading as="h1" size={{ base: "md", sm: "lg", lg: "xl" }} className='leading-snug whitespace-nowrap' fontFamily={"sans-serif"} fontWeight={"700"}>
         <TypeIncrementally text={header} typingSpeed={50} delaySeconds={pageLoadDelaySeconds} endEmoji={'👨‍💻'} doneTyping={() => setNextTurn(1)} />
       </Heading>
 
