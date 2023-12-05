@@ -8,9 +8,9 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
     return (
         <VStack p={10} width={"100vw"}>
             <Box as="div" className="prose prose-sm md:prose-xl prose-stone dark:prose-invert overflow-scroll w-full" >
-                <Button variant="solid" leftIcon={<IoMdArrowBack />} mb={10} width={"100%"} onClick={() => router.push("/projects")} size={{ base: "sm", md: "lg" }}>To Projects</Button>
+                <Button variant="solid" leftIcon={<IoMdArrowBack />} mb={10} onClick={() => router.push("/projects")} size={{ base: "sm", md: "lg" }}>To Projects</Button>
                 {children}
-                <Button variant="solid" leftIcon={<IoMdArrowBack />} mt={10} width={"100%"} onClick={() => router.push("/projects")} size={{ base: "sm", md: "lg" }}>To Projects</Button>
+                <Button variant="solid" leftIcon={<IoMdArrowBack />} mt={10} onClick={() => router.push("/projects")} size={{ base: "sm", md: "lg" }}>To Projects</Button>
             </Box >
         </VStack>
     )
