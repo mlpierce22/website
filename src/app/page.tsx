@@ -27,7 +27,7 @@ const HomePage = () => {
   ), [])
 
   const intro = useMemo(() => (
-    "I'm a product-minded full-stack software engineer with a passion for building user-centric applications. My core expertise is in frontend specifically as it relates to enterprise with a security focus."
+    "I'm a product-minded full-stack software engineer with a passion for building user-centric applications. My core expertise over the years has been in cutting-edge frontend experiences for enterprise - whether that be running AI in the browser or optimizing the performance of existing interfaces."
   ), [])
 
   const hook = useMemo(() => (
@@ -57,13 +57,13 @@ const HomePage = () => {
         )}
 
         {isMyTurn(1) && (
-          <Text fontSize={{ base: "lg", md: "3xl" }} className='leading-snug w-full'>
+          <Text fontSize={{ base: "md", md: "2xl" }} className='leading-snug w-full'>
             <TypeIncrementally text={intro} typingSpeed={10} doneTyping={() => setNextTurn(2)} />
           </Text>
         )}
 
         {isMyTurn(2) && (
-          <Text fontSize={{ base: "lg", md: "3xl" }} className='leading-snug w-full'>
+          <Text fontSize={{ base: "md", md: "2xl" }} className='leading-snug w-full'>
             <TypeIncrementally text={hook} typingSpeed={10} doneTyping={() => setNextTurn(3)} />
           </Text>
         )}
