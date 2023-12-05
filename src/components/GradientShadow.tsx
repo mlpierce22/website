@@ -15,7 +15,7 @@ const GradientShadow = ({ children, show, fit }: GradientShadowProps) => {
             onMouseLeave={() => setIsHovered(false)}>
             <Fade in={isHovered && show} transition={{ enter: { duration: 1 }, exit: { duration: 1 } }}>
 
-                <Box as="div" className="absolute -inset-2 rounded-lg bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 opacity-75 blur"></Box>
+                <Box as="div" className="absolute -inset-2 rounded-lg bg-gradient-to-r from-blue-400 via-sky-500 to-blue-600 opacity-75 blur"></Box>
             </Fade>
 
 
