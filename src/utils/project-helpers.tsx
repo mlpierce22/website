@@ -47,7 +47,7 @@ const getProjectImage = (imageId: ImageId) => {
 const projects: ProjectCardItems[] = [
     {
         title: "Camio Website",
-        description: "The website for Camio - an ai search and alert engine for video.",
+        description: "The website for Camio - an AI search and alert engine for video.",
         imageId: ProjectId.CAMIO_WEBSITE,
         buttons: [
             {
