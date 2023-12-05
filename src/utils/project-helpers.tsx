@@ -1,13 +1,13 @@
 import { ProjectCardItems } from '@/components/ProjectCard';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import Tech4GoodWebsite from "../../public/projects/tech4good-website.jpg";
-import KahzumWebsite from "../../public/projects/kahzum-website.jpg";
-import Tech4GoodCauseway from "../../public/projects/causeway.jpg";
-import CamioWebsite from "../../public/projects/camio-website.png";
-import GptWeightlifting from "../../public/projects/gpt-weightlifting.png";
-import GptSitesmith from "../../public/projects/gpt-sitesmith.png";
-import GptCoverLetter from "../../public/projects/gpt-cover-letter.png";
-import GptLingoAmigo from "../../public/projects/gpt-lingo-amigo.png";
+import Tech4GoodWebsite from "../../public/projects/header-images/cropped-tech4good-website.png";
+import KahzumWebsite from "../../public/projects/header-images/cropped-kahzum-website.png";
+import Tech4GoodCauseway from "../../public/projects/header-images/cropped-causeway.png";
+import CamioWebsite from "../../public/projects/header-images/cropped-camio-website.png";
+import GptWeightlifting from "../../public/projects/header-images/gpt-weightlifting.png";
+import GptSitesmith from "../../public/projects/header-images/gpt-sitesmith.png";
+import GptCoverLetter from "../../public/projects/header-images/gpt-cover-letter.png";
+import GptLingoAmigo from "../../public/projects/header-images/gpt-lingo-amigo.png";
 
 type ImageId = typeof ProjectId[keyof typeof ProjectId]
 
