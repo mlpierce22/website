@@ -1,4 +1,4 @@
-import { VStack, Heading, Box, Text, Link, Card, CardBody, CardFooter, CardHeader, HStack, SlideFade, Button, Wrap } from "@chakra-ui/react";
+import { VStack, Heading, Box, Text, Link, Card, CardBody, CardFooter, CardHeader, HStack, SlideFade, Button, Wrap, AspectRatio } from "@chakra-ui/react";
 import Image from "next/image";
 import { ImageId, getProjectImage } from "@/utils/project-helpers";
 import NavItemsList, { NavItem } from "./NavItemList";
@@ -29,10 +29,10 @@ const ProjectCard = ({ title, description, imageId, buttons, callback }: Project
                 <Card boxShadow="lg" rounded="lg" variant={"outline"} cursor={"pointer"}
                     onClick={() => router.push(`/projects/${imageId}`)}
                     width={"100%"} height={"100%"}>
-                    <CardHeader >
-                        <Box as="div" className="flex h-48 overflow-hidden justify-center items-center">
+                    <CardHeader>
+                        <AspectRatio ratio={16 / 9}>
                             <Image src={getProjectImage(imageId)} alt={title} priority />
-                        </Box>
+                        </AspectRatio>
                     </CardHeader>
                     <CardBody>
                         <VStack align="stretch" spacing={2}>
