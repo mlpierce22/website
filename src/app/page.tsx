@@ -18,11 +18,11 @@ const HomePage = () => {
   };
 
   const imageButtons: NavItem[] = [
-    { id: "view-projects-button", name: 'View Projects', icon: <FaArrowRight />, path: '/projects', variant: 'link', customButtonProps },
+    { id: "view-projects-button", name: 'View Projects', icon: <FaArrowRight />, path: '/projects', variant: 'link', noPadding: true, customButtonProps },
     {
-      id: "view-projects-button", name: 'Visit Github', icon: <FaArrowRight />, path: "https://github.com/mlpierce22", variant: 'link', isExternal: true, customButtonProps
+      id: "view-projects-button", name: 'Visit Github', icon: <FaArrowRight />, path: "https://github.com/mlpierce22", variant: 'link', noPadding: true, isExternal: true, customButtonProps
     },
-    { id: "connect-linkedin-button", name: 'Connect on LinkedIn', icon: <FaArrowRight />, path: "https://linkedin.com/in/malapier", variant: 'link', isExternal: true, customButtonProps }
+    { id: "connect-linkedin-button", name: 'Connect on LinkedIn', icon: <FaArrowRight />, path: "https://linkedin.com/in/malapier", variant: 'link', noPadding: true, isExternal: true, customButtonProps }
   ]
 
   const header = useMemo(() => (
@@ -79,7 +79,7 @@ const HomePage = () => {
           </SlideFade>
         </VStack>
         <SlideFade in={isMyTurn(1)} offsetY='20px' transition={{ enter: { duration: 2 } }} className='w-full h-full'>
-          <Stack direction={{ base: "row", xl: "column" }} spacing={7} alignSelf={"start"} alignItems={"start"} justifyContent={{ base: "center" }} height={"50%"}>
+          <Stack direction={{ base: "column", sm: "row", xl: "column" }} spacing={{ base: 2, sm: 7 }} alignSelf={"start"} alignItems={"start"} justifyContent={{ base: "center" }} height={"50%"} mt={{ base: 0, "2xl": 12 }}>
             <NavItemsList navItems={imageButtons} size={{ base: "md", md: "lg", xl: "lg" }} />
           </Stack>
         </SlideFade>

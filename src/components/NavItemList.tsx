@@ -9,7 +9,8 @@ export type NavItem = {
     variant: "solid" | "outline" | "ghost" | "link",
     icon?: any,
     isExternal?: boolean
-    customButtonProps?: ButtonProps
+    customButtonProps?: ButtonProps,
+    noPadding?: boolean,
 }
 
 type Sizes = "sm" | "md" | "lg" | "xs" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl"
@@ -37,11 +38,11 @@ const NavItemsList = ({ navItems, iconOnly, size, showGradient, callbackWhenClic
             {navItems.map((item, index) => {
                 return item.icon && !item.name || iconOnly ?
                     <GradientShadow show={!!showGradient} key={`${index}-${item.id}-nav-icon`} fit={true}>
-                        <Button onClick={(e) => navigate(item.path, !!item.isExternal, e)} size={size} {...item.customButtonProps}>{item.icon}</Button>
+                        <Button className={item.noPadding ? "!p-0" : ''} onClick={(e) => navigate(item.path, !!item.isExternal, e)} size={size} {...item.customButtonProps}>{item.icon}</Button>
                     </GradientShadow>
                     :
                     <GradientShadow show={!!showGradient} key={`${index}-${item.id}-nav-item`} fit={true}>
-                        <Button leftIcon={item.icon || ''} onClick={(e) => navigate(item.path, !!item.isExternal, e)} variant={item.variant} size={size} {...item.customButtonProps}>{item.name}</Button>
+                        <Button className={item.noPadding ? "!p-0" : ''} leftIcon={item.icon || ''} onClick={(e) => navigate(item.path, !!item.isExternal, e)} variant={item.variant} size={size} {...item.customButtonProps}>{item.name}</Button>
                     </GradientShadow>
             })
             }
