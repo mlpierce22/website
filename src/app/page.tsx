@@ -1,25 +1,28 @@
 'use client'
 import { wave } from '@/animations';
-import { Heading, VStack, HStack, useBreakpoint, Box, SlideFade, Text } from '@chakra-ui/react';
+import { Heading, VStack, HStack, useBreakpoint, Box, SlideFade, Text, AspectRatio, Stack, ButtonProps, useColorMode } from '@chakra-ui/react';
 import Image from 'next/image'
 import NavItemsList, { NavItem } from '@/components/NavItemList';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useMemo } from 'react';
 import { useTurnBasedRender } from '@/hooks/useTurnBasedRender';
 import TypeIncrementally from '@/components/TypeIncrementally';
+import Portrait from '../../public/portrait.jpg';
+
 
 const HomePage = () => {
-
-  const breakpoint = useBreakpoint();
-
-  const iconsOnly = breakpoint === 'base' || breakpoint === 'sm';
+  const { colorMode } = useColorMode();
+  const customButtonProps: ButtonProps = {
+    fontSize: { base: "md", md: "xl", lg: "2xl", xl: "2xl", "2xl": "3xl" },
+    color: colorMode === "dark" ? "skyblue" : "deepskyblue",
+  };
 
   const imageButtons: NavItem[] = [
-    { id: "view-projects-button", name: 'View Projects', icon: '📚', path: '/projects', variant: 'solid' },
+    { id: "view-projects-button", name: 'View Projects', icon: <FaArrowRight />, path: '/projects', variant: 'link', customButtonProps },
     {
-      id: "view-projects-button", name: 'Visit Github', icon: <FaGithub />, path: "https://github.com/mlpierce22", variant: 'solid', isExternal: true
+      id: "view-projects-button", name: 'Visit Github', icon: <FaArrowRight />, path: "https://github.com/mlpierce22", variant: 'link', isExternal: true, customButtonProps
     },
-    { id: "connect-linkedin-button", name: 'Connect on LinkedIn', icon: <FaLinkedin />, path: "https://linkedin.com/in/malapier", variant: 'solid', isExternal: true }
+    { id: "connect-linkedin-button", name: 'Connect on LinkedIn', icon: <FaArrowRight />, path: "https://linkedin.com/in/malapier", variant: 'link', isExternal: true, customButtonProps }
   ]
 
   const header = useMemo(() => (
@@ -37,42 +40,44 @@ const HomePage = () => {
   const pageLoadDelaySeconds = 0.5;
   const { setNextTurn, isMyTurn } = useTurnBasedRender();
 
+  const responsiveFontSize = { base: "md", md: "lg", xl: "xl", "2xl": "2xl" };
+
   return (
-    <VStack p={10} spacing={10}>
-      <SlideFade in={isMyTurn(0)} offsetY='20px' transition={{ enter: { duration: 2 } }}>
-        <VStack spacing={2}>
-          <Box as="div" className='relative justify-self-center self-center w-[300px] h-[186px] sm:w-[400px] sm:h-[286px] md:w-[500px] md:h-[386px] lg:w-[600px] lg:h-[486px]' lineHeight={1.2}>
-            <Image style={{ objectFit: 'contain' }} className="rounded-lg" src="/portrait.jpg" fill={true} alt="Mason Pierce" priority />
-          </Box>
-          <HStack spacing={10} mt={10}>
-            <NavItemsList navItems={imageButtons} iconOnly={iconsOnly} size={'lg'} showGradient={true} />
-          </HStack>
-        </VStack>
+    <Stack spacing={10} p={10} width={"100vw"} justifyContent={"center"} direction={{ base: "column", xl: "row" }}>
+      <SlideFade in={isMyTurn(0)} offsetY='20px' transition={{ enter: { duration: 2 } }} className='flex flex-col items-center'>
+        <Box as="div" width={{ base: "70vw", lg: "50vw" }} className='max-w-4xl'>
+          <AspectRatio ratio={4 / 3}>
+            <Image className="rounded-lg" src={Portrait} alt="Mason Pierce" priority />
+          </AspectRatio>
+        </Box>
       </SlideFade>
-      <VStack spacing={10} className='max-w-6xl' minHeight={"50vh"}>
-        {isMyTurn(0) && (
-          <Heading size={{ base: "lg", md: "3xl" }} className='leading-snug'>
-            <TypeIncrementally text={header} typingSpeed={50} endEmoji='👋' delaySeconds={pageLoadDelaySeconds} doneTyping={() => setNextTurn(1)} />
-          </Heading>
-        )}
+      <Stack width={"100%"} height={"100%"} alignSelf={"start"} spacing={10} direction={"column"} className='max-w-7xl'>
+        <VStack spacing={5} alignItems={{ base: "center", xl: "start" }} height={"50%"} width={"100%"}>
+          {isMyTurn(0) && (
+            <Heading size={{ base: "lg", md: "xl", xl: "2xl" }} className='leading-snug'>
+              <TypeIncrementally text={header} typingSpeed={50} endEmoji='👋' delaySeconds={pageLoadDelaySeconds} doneTyping={() => setNextTurn(1)} />
+            </Heading>
+          )}
 
-        {isMyTurn(1) && (
-          <Text fontSize={{ base: "md", md: "2xl" }} className='leading-snug w-full'>
-            <TypeIncrementally text={intro} typingSpeed={10} doneTyping={() => setNextTurn(2)} />
-          </Text>
-        )}
+          {isMyTurn(1) && (
+            <Text fontSize={responsiveFontSize} className='leading-snug w-full'>
+              <TypeIncrementally text={intro} typingSpeed={10} doneTyping={() => setNextTurn(2)} />
+            </Text>
+          )}
 
-        {isMyTurn(2) && (
-          <Text fontSize={{ base: "md", md: "2xl" }} className='leading-snug w-full'>
-            <TypeIncrementally text={hook} typingSpeed={10} doneTyping={() => setNextTurn(3)} />
-          </Text>
-        )}
-
-        <SlideFade in={isMyTurn(3)} offsetY='20px' transition={{ enter: { duration: 2 } }}>
-
+          {isMyTurn(2) && (
+            <Text fontSize={responsiveFontSize} className='leading-snug w-full'>
+              <TypeIncrementally text={hook} typingSpeed={10} doneTyping={() => setNextTurn(3)} />
+            </Text>
+          )}
+        </VStack>
+        <SlideFade in={isMyTurn(3)} offsetY='20px' transition={{ enter: { duration: 2 } }} className='w-full h-full'>
+          <Stack direction={{ base: "row", xl: "column" }} spacing={7} alignSelf={"start"} alignItems={"start"} justifyContent={{ base: "center" }} height={"50%"}>
+            <NavItemsList navItems={imageButtons} size={{ base: "md", md: "lg", xl: "lg" }} />
+          </Stack>
         </SlideFade>
-      </VStack>
-    </VStack>
+      </Stack>
+    </Stack>
   );
 }
 
