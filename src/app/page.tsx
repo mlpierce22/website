@@ -23,7 +23,7 @@ const HomePage = () => {
   ]
 
   const header = useMemo(() => (
-    "Hey there, I'm Mason!"
+    "Hi, I'm Mason!"
   ), [])
 
   const intro = useMemo(() => (
