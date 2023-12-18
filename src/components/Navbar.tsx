@@ -11,7 +11,7 @@ const Navbar = () => {
         { id: "nav-items-home", name: 'Home', icon: '🏠', path: '/', variant: 'ghost' },
         { id: "nav-items-about", name: 'About Me', icon: '👤', path: '/about', variant: 'ghost' },
         { id: "nav-items-projects", name: 'Projects', icon: '📚', path: '/projects', variant: 'ghost' },
-        { id: "nav-items-projects", name: 'Resume', icon: '📄', path: '/resume.pdf', variant: 'ghost', isExternal: true },
+        { id: "nav-items-projects", name: 'Resume', icon: '📄', path: '/mason-pierce-swe-resume.pdf', variant: 'ghost', isExternal: true },
         // Later
         // { id: "nav-items-bookmarks", name: 'Bookmarks', icon: '🔖', path: '/bookmarks', variant: 'ghost' },
         // { id: "nav-items-travel", name: 'Travel', icon: '✈️', path: '/travel', variant: 'ghost' },
