@@ -8,6 +8,7 @@ import GptWeightlifting from "../../public/projects/header-images/gpt-weightlift
 import GptSitesmith from "../../public/projects/header-images/gpt-sitesmith.png";
 import GptCoverLetter from "../../public/projects/header-images/gpt-cover-letter.png";
 import GptLingoAmigo from "../../public/projects/header-images/gpt-lingo-amigo.png";
+import Segmentation from "../../public/projects/header-images/segmentation.png";
 
 type ImageId = typeof ProjectId[keyof typeof ProjectId]
 
@@ -20,6 +21,7 @@ enum ProjectId {
     GPT_SITESMITH = "gpt-sitesmith",
     GPT_COVER_LETTER = "gpt-cover-letter",
     GPT_LINGO_AMIGO = "gpt-lingo-amigo",
+    SEGMENTATION = "segmentation",
 };
 
 const getProjectImage = (imageId: ImageId) => {
@@ -40,6 +42,8 @@ const getProjectImage = (imageId: ImageId) => {
             return GptCoverLetter;
         case ProjectId.GPT_LINGO_AMIGO:
             return GptLingoAmigo;
+        case ProjectId.SEGMENTATION:
+            return Segmentation;
         default:
             return "";
     }
@@ -54,6 +58,21 @@ const projects: ProjectCardItems[] = [
                 id: "visit-camio",
                 name: "Visit Camio",
                 path: "https://camio.com",
+                variant: "outline",
+                icon: <ExternalLinkIcon />,
+                isExternal: true,
+            },
+        ],
+    },
+    {
+        title: "In-Browser Segmentation",
+        description: "A fun demo that utilizes WASM to run real-time segmentation in the browser utilizing the SAM model.",
+        imageId: ProjectId.SEGMENTATION,
+        buttons: [
+            {
+                id: "segmentation",
+                name: "Play with a demo",
+                path: "https://app.test.camio.com",
                 variant: "outline",
                 icon: <ExternalLinkIcon />,
                 isExternal: true,

@@ -1,0 +1,29 @@
+import SegmentationHover from '../../../../public/projects/segmentation/segmentation_hover.png'
+import SegmentationPopover from '../../../../public/projects/segmentation/segmentation_popover.png'
+import ImageSlider from '../../../components/ImageSlider'
+
+# In-Browser Segmentation
+### 🚀 <a href="https://app.test.camio.com" target="_blank">Try it</a>
+
+## Overview
+- **Date:** 2023
+
+## Description
+A proof of concept utilizing emerging Meta research to enable real-time in-browser segmentation of images. This is massive because historically one of the most time consuming parts of training models is drawing bounding boxes around objects in images. This is a huge step towards automating/removing most of that process. I'm excited to say, Camio was the first company to not only incorporate this cutting edge research into their product, but also to convert it into a form that customers could understand and appreciate its usefulness to them.
+
+## Key Contributions
+- Reverse engineering some of how Meta was formatting the images to send to the model for embeddings
+- Running the model in the browser using WASM and onnx
+- Rendering the embeddings in real time as the user hovered over the image
+- Adding the labelling interface
+- Making it responsive and mobile friendly so we could send it to customers to play with while we were demoing it to them
+
+## Screenshots
+        <ImageSlider imageUrls={[]} images={[SegmentationHover,
+SegmentationPopover]} />
+
+## Challenges and Solutions
+One of the most challenging parts of this (and one of the things I'm most proud of) is that this was cutting edge CV research that had been released just days earlier. It was not really ready for production use, but from a business perspective, enabling Camio to be a first mover here was a competitive advantage. As a result, this was a very high-risk project because there was a tight deadline combined with the fact that I was learning as I went. One of the biggest challenges when building this project was (ironically) figuring out the best way to give the model a correctly formatted image so it could generate the embeddings, then rendering those embeddings in real time for the user as they hovered over the image. This whole process was exciting to me because it really showed me how quickly I could learn and adapt emerging research. Implementing this end to end took ~5 days.
+
+## Credits and Acknowledgements
+Gabby and Paige were massively helpful in getting the model up into the cloud in a secure way!
