@@ -13,7 +13,7 @@ const Footer = () => {
         <VStack p={8} mt={"auto"} className='border-t-2 dark:border-t-slate-700 border-t-slate-200'>
             <VStack spacing={5}>
                 <HStack spacing={5}>
-                    <NavItemsList navItems={bottomIcons} showGradient={true}></NavItemsList>
+                    <NavItemsList navItems={bottomIcons} size={"md"} showGradient={true}></NavItemsList>
                 </HStack>
                 <Text>&copy; {new Date().getFullYear()} Mason Pierce</Text>
             </VStack>
